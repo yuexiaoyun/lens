@@ -7,9 +7,12 @@
   padding: .2em .4em;
   max-width: 100%;
 
+  &.isExpandable {
+    cursor: pointer;
+  }
+
   &.interactive:hover {
     background-color: $mainBackground;
-    cursor: pointer;
   }
 
   &:not(.isExpanded) {

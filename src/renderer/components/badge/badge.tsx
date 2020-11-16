@@ -25,35 +25,73 @@ document.addEventListener("selectionchange", () => {
 @withTooltip
 @observer
 export class Badge extends React.Component<BadgeProps> {
-  @observable.ref elem: HTMLElement;
-  @observable isExpanded = false;
+  @observable _isExpanded = false;
+  @observable hasHighlightedText = false;
+  @observable interval?: NodeJS.Timeout;
+  @observable.ref elem?: HTMLElement;
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+  @computed get isExpanded() {
+    return this.props.isExpanded ?? this._isExpanded
+  }
 
   @computed get isExpandable() {
-    return this.elem?.clientWidth < this.elem?.scrollWidth;
+    console.log(this.elem)
+    if (!this.elem) {
+      return false
+    }
+
+    const { scrollWidth, clientWidth, clientHeight, scrollHeight } = this.elem
+    return clientWidth < scrollWidth || clientHeight < scrollHeight
   }
 
   @autobind()
-  onMouseUp(evt: React.MouseEvent) {
-    if (!this.isExpandable || badgeMeta.hasTextSelected) return; // no action required
-    this.isExpanded = !this.isExpanded;
+  setRef(elem: HTMLElement) {
+    // This needs to be a seperate function, see: https://github.com/facebook/react/issues/11258
+    this.elem = elem
   }
 
   @autobind()
-  bindRef(elem: HTMLElement) {
-    this.elem = elem;
+  onMouseDown() {
+    // Calculate once and then again after every 75ms.
+    this.hasHighlightedText ||= document.getSelection().toString().length > 0
+
+    // Human reaction time ranges from 150ms to 250ms so every 75ms should be
+    // often enough (while not being resource intensive).
+    this.interval = setInterval(() => {
+      this.hasHighlightedText ||= document.getSelection().toString().length > 0
+    }, 75)
+  }
+
+  @autobind()
+  onMouseUp() {
+    clearInterval(this.interval)
+
+    if (!this.hasHighlightedText) {
+      this._isExpanded = !this._isExpanded
+    }
+
+    this.hasHighlightedText = false
   }
 
   render() {
-    const { className, label, small, children, isExpanded, ...elemProps } = this.props;
+    const { className, label, small, children, isExpanded: _, ...elemProps } = this.props;
     const classNames = cssNames("Badge", className, {
-      small: small,
-      interactive: this.isExpandable,
-      isExpanded: isExpanded ?? this.isExpanded,
+      small,
+      isExpandable: this.isExpandable,
+    })
+    const labelClass = cssNames("label-content", {
+      isExpanded: this.isExpanded,
     })
     return (
-      <div {...elemProps} className={classNames} onMouseUp={this.onMouseUp} ref={this.bindRef}>
-        {label}
-        {children}
+      <div {...elemProps} className={classNames}>
+        <div className={labelClass} onMouseUp={this.onMouseUp} onMouseDown={this.onMouseDown} ref={this.setRef}>
+          {label}
+          {children}
+        </div>
       </div>
     )
   }
