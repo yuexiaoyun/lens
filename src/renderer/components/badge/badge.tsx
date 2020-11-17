@@ -75,17 +75,13 @@ export class Badge extends React.Component<BadgeProps> {
     const classNames = cssNames("Badge", className, {
       small,
       isExpandable: this.isExpandable,
-    })
-    const labelClass = cssNames("label-content", {
       isExpanded: this.isExpanded,
     })
 
     return (
-      <div {...elemProps} className={classNames} onMouseUp={this.onMouseUp} onMouseDown={this.onMouseDown} >
-        <div className={labelClass} ref={this.setRef}>
-          {label}
-          {children}
-        </div>
+      <div {...elemProps} className={classNames} onMouseUp={this.onMouseUp} onMouseDown={this.onMouseDown} ref={this.setRef}>
+        {label}
+        {children}
       </div>
     )
   }

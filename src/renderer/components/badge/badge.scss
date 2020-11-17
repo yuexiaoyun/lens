@@ -1,5 +1,4 @@
 .Badge {
-  position: relative;
   display: inline-block;
   background: $colorVague;
   color: $textColorSecondary;
@@ -9,10 +8,10 @@
 
   &.isExpandable {
     cursor: pointer;
-  }
 
-  &.interactive:hover {
-    background-color: $mainBackground;
+    &:hover {
+      background-color: $mainBackground;
+    }
   }
 
   &:not(.isExpanded) {
