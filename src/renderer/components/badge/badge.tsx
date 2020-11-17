@@ -27,11 +27,10 @@ document.addEventListener("selectionchange", () => {
 export class Badge extends React.Component<BadgeProps> {
   @observable _isExpanded = false;
   @observable hasHighlightedText = false;
-  @observable interval?: NodeJS.Timeout;
   @observable.ref elem?: HTMLElement;
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    document.removeEventListener("selectionchange", this.onSelectionChange)
   }
 
   @computed get isExpanded() {
@@ -39,12 +38,7 @@ export class Badge extends React.Component<BadgeProps> {
   }
 
   @computed get isExpandable() {
-    console.log(this.elem)
-    if (!this.elem) {
-      return false
-    }
-
-    const { scrollWidth, clientWidth, clientHeight, scrollHeight } = this.elem
+    const { scrollWidth, clientWidth, clientHeight, scrollHeight } = this.elem || {}
     return clientWidth < scrollWidth || clientHeight < scrollHeight
   }
 
@@ -55,20 +49,19 @@ export class Badge extends React.Component<BadgeProps> {
   }
 
   @autobind()
-  onMouseDown() {
-    // Calculate once and then again after every 75ms.
+  onSelectionChange() {
     this.hasHighlightedText ||= document.getSelection().toString().length > 0
+  }
 
-    // Human reaction time ranges from 150ms to 250ms so every 75ms should be
-    // often enough (while not being resource intensive).
-    this.interval = setInterval(() => {
-      this.hasHighlightedText ||= document.getSelection().toString().length > 0
-    }, 75)
+  @autobind()
+  onMouseDown() {
+    this.onSelectionChange() // initial "event" fire on mouse down (for clearing old selections)
+    document.addEventListener("selectionchange", this.onSelectionChange)
   }
 
   @autobind()
   onMouseUp() {
-    clearInterval(this.interval)
+    document.removeEventListener("selectionchange", this.onSelectionChange)
 
     if (!this.hasHighlightedText) {
       this._isExpanded = !this._isExpanded
@@ -86,9 +79,10 @@ export class Badge extends React.Component<BadgeProps> {
     const labelClass = cssNames("label-content", {
       isExpanded: this.isExpanded,
     })
+
     return (
-      <div {...elemProps} className={classNames}>
-        <div className={labelClass} onMouseUp={this.onMouseUp} onMouseDown={this.onMouseDown} ref={this.setRef}>
+      <div {...elemProps} className={classNames} onMouseUp={this.onMouseUp} onMouseDown={this.onMouseDown} >
+        <div className={labelClass} ref={this.setRef}>
           {label}
           {children}
         </div>
