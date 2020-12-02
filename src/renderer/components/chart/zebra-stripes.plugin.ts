@@ -21,6 +21,7 @@ export const ZebraStripes = {
 
   getLastUpdate(chart: ChartJS) {
     const data = chart.data.datasets[0].data[0] as ChartPoint;
+
     return moment.unix(parseInt(data.x as string));
   },
 
@@ -30,6 +31,7 @@ export const ZebraStripes = {
 
   removeStripesElem(chart: ChartJS) {
     const elem = this.getStripesElem(chart);
+
     if (!elem) return;
     chart.canvas.parentElement.removeChild(elem);
   },
@@ -46,10 +48,10 @@ export const ZebraStripes = {
     if (this.getStripesElem(chart)) return;
 
     cover.className = "zebra-cover";
-    styles.width = right - left + "px";
-    styles.left = left + "px";
-    styles.top = top + "px";
-    styles.height = bottom - top + "px";
+    styles.width = `${right - left}px`;
+    styles.left = `${left}px`;
+    styles.top = `${top}px`;
+    styles.height = `${bottom - top}px`;
     styles.backgroundImage = `
       repeating-linear-gradient(to right, ${stripeColor} 0px, ${stripeColor} ${stripeWidth}px,
       transparent ${stripeWidth}px, transparent ${stripeWidth * 2 + step}px)
@@ -89,7 +91,8 @@ export const ZebraStripes = {
     if (minutes > 0) {
       // Move position regarding to difference in time
       const cover = this.getStripesElem(chart);
-      cover.style.backgroundPositionX = -step * minutes + "px";
+
+      cover.style.backgroundPositionX = `${-step * minutes}px`;
     }
   }
 };

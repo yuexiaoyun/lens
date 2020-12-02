@@ -48,16 +48,18 @@ export class Nodes extends React.Component<Props> {
 
   renderCpuUsage(node: Node) {
     const metrics = nodesStore.getLastMetricValues(node, ["cpuUsage", "cpuCapacity"]);
+
     if (!metrics || !metrics[1]) return <LineProgress value={0}/>;
     const usage = metrics[0];
     const cores = metrics[1];
+
     return (
       <LineProgress
         max={cores}
         value={usage}
         tooltip={{
           preferredPositions: TooltipPosition.BOTTOM,
-          children: _i18n._(t`CPU:`) + ` ${Math.ceil(usage * 100) / cores}\%, ` + _i18n._(t`cores:`) + ` ${cores}`
+          children: `${_i18n._(t`CPU:`)} ${Math.ceil(usage * 100) / cores}\%, ${_i18n._(t`cores:`)} ${cores}`
         }}
       />
     );
@@ -65,16 +67,18 @@ export class Nodes extends React.Component<Props> {
 
   renderMemoryUsage(node: Node) {
     const metrics = nodesStore.getLastMetricValues(node, ["memoryUsage", "memoryCapacity"]);
+
     if (!metrics || !metrics[1]) return <LineProgress value={0}/>;
     const usage = metrics[0];
     const capacity = metrics[1];
+
     return (
       <LineProgress
         max={capacity}
         value={usage}
         tooltip={{
           preferredPositions: TooltipPosition.BOTTOM,
-          children: _i18n._(t`Memory:`) + ` ${Math.ceil(usage * 100 / capacity)}%, ${bytesToUnits(usage, 3)}`
+          children: `${_i18n._(t`Memory:`)} ${Math.ceil(usage * 100 / capacity)}%, ${bytesToUnits(usage, 3)}`
         }}
       />
     );
@@ -82,16 +86,18 @@ export class Nodes extends React.Component<Props> {
 
   renderDiskUsage(node: Node): any {
     const metrics = nodesStore.getLastMetricValues(node, ["fsUsage", "fsSize"]);
+
     if (!metrics || !metrics[1]) return <LineProgress value={0}/>;
     const usage = metrics[0];
     const capacity = metrics[1];
+
     return (
       <LineProgress
         max={capacity}
         value={usage}
         tooltip={{
           preferredPositions: TooltipPosition.BOTTOM,
-          children: _i18n._(t`Disk:`) + ` ${Math.ceil(usage * 100 / capacity)}%, ${bytesToUnits(usage, 3)}`
+          children: `${_i18n._(t`Disk:`)} ${Math.ceil(usage * 100 / capacity)}%, ${bytesToUnits(usage, 3)}`
         }}
       />
     );
@@ -102,9 +108,11 @@ export class Nodes extends React.Component<Props> {
       return null;
     }
     const conditions = node.getActiveConditions();
+
     return conditions.map(condition => {
       const { type } = condition;
       const tooltipId = `node-${node.getName()}-condition-${type}`;
+
       return (
         <div key={type} id={tooltipId} className={cssNames("condition", kebabCase(type))}>
           {type}
@@ -161,6 +169,7 @@ export class Nodes extends React.Component<Props> {
           ]}
           renderTableContents={(node: Node) => {
             const tooltipId = `node-taints-${node.getId()}`;
+
             return [
               node.getName(),
               <KubeObjectStatusIcon key="icon" object={node} />,

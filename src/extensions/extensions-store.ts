@@ -30,11 +30,13 @@ export class ExtensionsStore extends BaseStore<LensExtensionsStoreModel> {
 
   protected getState(extensionLoader: ExtensionLoader) {
     const state: Record<LensExtensionId, LensExtensionState> = {};
+
     return Array.from(extensionLoader.userExtensions).reduce((state, [extId, ext]) => {
       state[extId] = {
         enabled: ext.isEnabled,
         name: ext.manifest.name,
       };
+
       return state;
     }, state);
   }
@@ -42,16 +44,6 @@ export class ExtensionsStore extends BaseStore<LensExtensionsStoreModel> {
   async manageState(extensionLoader: ExtensionLoader) {
     await extensionLoader.whenLoaded;
     await this.whenLoaded;
-
-    // apply state on changes from store
-    reaction(() => this.state.toJS(), extensionsState => {
-      extensionsState.forEach((state, extId) => {
-        const ext = extensionLoader.getExtension(extId);
-        if (ext && !ext.isBundled) {
-          ext.isEnabled = state.enabled;
-        }
-      });
-    });
 
     // save state on change `extension.isEnabled`
     reaction(() => this.getState(extensionLoader), extensionsState => {
@@ -61,7 +53,10 @@ export class ExtensionsStore extends BaseStore<LensExtensionsStoreModel> {
 
   isEnabled(extId: LensExtensionId) {
     const state = this.state.get(extId);
-    return state && state.enabled; // by default false
+
+    // By default false, so that copied extensions are disabled by default.
+    // If user installs the extension from the UI, the Extensions component will specifically enable it.
+    return Boolean(state?.enabled);
   }
 
   @action

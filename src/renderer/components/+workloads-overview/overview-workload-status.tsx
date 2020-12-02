@@ -45,17 +45,19 @@ export class OverviewWorkloadStatus extends React.Component<Props> {
         label: "Empty"
       }]
     };
+
     if (statuses.some(([, val]) => val > 0)) {
       const dataset: SimpleChartDataSets = {
         data: [],
         backgroundColor: [],
         label: "Status",
       };
+
       statuses.forEach(([key, val]) => {
         if (val !== 0) {
           dataset.data.push(val);
           dataset.backgroundColor.push(this.getStatusColor(key));
-          chartData.labels.push(capitalize(key) + ": " + val);
+          chartData.labels.push(`${capitalize(key)}: ${val}`);
         }
       });
       chartData.datasets[0] = dataset;
@@ -67,6 +69,7 @@ export class OverviewWorkloadStatus extends React.Component<Props> {
         },
       },
     };
+
     return (
       <PieChart data={chartData} options={options}/>
     );

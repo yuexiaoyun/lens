@@ -39,11 +39,13 @@ export const PodLogControls = observer((props: Props) => {
 
   const downloadLogs = () => {
     const fileName = selectedContainer ? selectedContainer.name : pod.getName();
-    saveFileDialog(fileName + ".log", logs.join("\n"), "text/plain");
+
+    saveFileDialog(`${fileName}.log`, logs.join("\n"), "text/plain");
   };
 
   const onContainerChange = (option: SelectOption) => {
     const { containers, initContainers } = tabData;
+
     save({
       selectedContainer: containers
         .concat(initContainers)
@@ -54,6 +56,7 @@ export const PodLogControls = observer((props: Props) => {
 
   const containerSelectOptions = () => {
     const { containers, initContainers } = tabData;
+
     return [
       {
         label: _i18n._(t`Containers`),
@@ -72,6 +75,7 @@ export const PodLogControls = observer((props: Props) => {
 
   const formatOptionLabel = (option: SelectOption) => {
     const { value, label } = option;
+
     return label || <><Icon small material="view_carousel"/> {value}</>;
   };
 
@@ -100,7 +104,7 @@ export const PodLogControls = observer((props: Props) => {
           material="av_timer"
           onClick={toggleTimestamps}
           className={cssNames("timestamps-icon", { active: showTimestamps })}
-          tooltip={(showTimestamps ? _i18n._(t`Hide`) : _i18n._(t`Show`)) + " " + _i18n._(t`timestamps`)}
+          tooltip={`${showTimestamps ? _i18n._(t`Hide`) : _i18n._(t`Show`)} ${_i18n._(t`timestamps`)}`}
         />
         <Icon
           material="history"

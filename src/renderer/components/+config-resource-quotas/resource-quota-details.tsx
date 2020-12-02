@@ -46,7 +46,7 @@ function renderQuotas(quota: ResourceQuota): JSX.Element[] {
             max={max}
             value={current}
             tooltip={
-              <p><Trans>Set</Trans>: {value}. <Trans>Usage</Trans>: {usage + "%"}</p>
+              <p><Trans>Set</Trans>: {value}. <Trans>Usage</Trans>: {`${usage}%`}</p>
             }
           />
         </div>
@@ -58,7 +58,9 @@ function renderQuotas(quota: ResourceQuota): JSX.Element[] {
 export class ResourceQuotaDetails extends React.Component<Props> {
   render() {
     const { object: quota } = this.props;
+
     if (!quota) return null;
+
     return (
       <div className="ResourceQuotaDetails">
         <KubeObjectMeta object={quota}/>
@@ -79,6 +81,7 @@ export class ResourceQuotaDetails extends React.Component<Props> {
               {
                 quota.getScopeSelector().map((selector, index) => {
                   const { operator, scopeName, values } = selector;
+
                   return (
                     <TableRow key={index}>
                       <TableCell>{operator}</TableCell>

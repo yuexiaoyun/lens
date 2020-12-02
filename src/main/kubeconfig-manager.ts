@@ -15,7 +15,9 @@ export class KubeconfigManager {
 
   static async create(cluster: Cluster, contextHandler: ContextHandler, port: number) {
     const kcm = new KubeconfigManager(cluster, contextHandler, port);
+
     await kcm.init();
+
     return kcm;
   }
 
@@ -66,13 +68,14 @@ export class KubeconfigManager {
         }
       ]
     };
-
     // write
     const configYaml = dumpConfigYaml(proxyConfig);
+
     fs.ensureDir(path.dirname(tempFile));
     fs.writeFileSync(tempFile, configYaml, { mode: 0o600 });
     this.tempFile = tempFile;
     logger.debug(`Created temp kubeconfig "${contextName}" at "${tempFile}": \n${configYaml}`);
+
     return tempFile;
   }
 
@@ -81,7 +84,7 @@ export class KubeconfigManager {
       return;
     }
 
-    logger.info("Deleting temporary kubeconfig: " + this.tempFile);
+    logger.info(`Deleting temporary kubeconfig: ${this.tempFile}`);
     await fs.unlink(this.tempFile);
     this.tempFile = undefined;
   }
