@@ -24,6 +24,8 @@ import { isInstallChartTab } from "./install-chart.store";
 import { isUpgradeChartTab } from "./upgrade-chart.store";
 import { PodLogs } from "./pod-logs";
 import { isPodLogsTab } from "./pod-logs.store";
+import { ipcRenderer } from "electron";
+import { toJS } from "mobx";
 
 interface Props {
   className?: string;
@@ -31,6 +33,22 @@ interface Props {
 
 @observer
 export class Dock extends React.Component<Props> {
+  componentDidMount() {
+    ipcRenderer.on("close-all-dock-tabs", () => {
+      dockStore.reset();
+    });
+    ipcRenderer.on("select-dock-tab", (event, selectedIndex: number) => {
+      const tab = dockStore.tabs[selectedIndex];
+
+      if (!tab) return;
+      this.onChangeTab(tab);
+    });
+  }
+
+  componentWillUnmount() {
+    ipcRenderer.invoke("set-general-touchbar");
+  }
+
   onKeydown = (evt: React.KeyboardEvent<HTMLElement>) => {
     const { close, closeTab, selectedTab } = dockStore;
 
@@ -52,6 +70,16 @@ export class Dock extends React.Component<Props> {
 
     open();
     selectTab(tab.id);
+  };
+
+  onFocus = () => {
+    if (dockStore.isOpen) {
+      ipcRenderer.invoke("set-dock-touchbar", toJS(dockStore.tabs));
+    }
+  };
+
+  onBlur = () => {
+    ipcRenderer.invoke("set-general-touchbar");
   };
 
   @autobind()
@@ -99,6 +127,8 @@ export class Dock extends React.Component<Props> {
         className={cssNames("Dock", className, { isOpen, fullSize })}
         onKeyDown={this.onKeydown}
         tabIndex={-1}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
       >
         <ResizingAnchor
           disabled={!hasTabs()}
