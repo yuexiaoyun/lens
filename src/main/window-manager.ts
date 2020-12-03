@@ -8,6 +8,7 @@ import { initMenu } from "./menu";
 import { initTray } from "./tray";
 import { Singleton } from "../common/utils";
 import { clusterFrameMap } from "../common/cluster-frames";
+import { initTouchBar } from "./touch-bar";
 
 export class WindowManager extends Singleton {
   protected mainWindow: BrowserWindow;
@@ -73,6 +74,9 @@ export class WindowManager extends Singleton {
       this.mainWindow.on("blur", () => {
         appEventBus.emit({name: "app", action: "blur"});
       });
+
+      // setting touch bar controls (mac-os only)
+      initTouchBar(this.mainWindow);
 
       // clean up
       this.mainWindow.on("closed", () => {
