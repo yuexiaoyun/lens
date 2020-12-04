@@ -1,3 +1,5 @@
+import path from "path";
+import { isDevelopment } from "../common/vars";
 import { app, BrowserWindow, ipcMain, TouchBar } from "electron";
 import { broadcastMessage, subscribeToBroadcast } from "../common/ipc";
 import { IDockTab } from "../renderer/components/dock/dock.store";
@@ -6,11 +8,19 @@ import { IDockTab } from "../renderer/components/dock/dock.store";
 
 let touchBar: TouchBar;
 
+function getIcon(filename: string) {
+  return path.resolve(
+    __static,
+    isDevelopment ? "../build/touchbar" : "icons", // copied within electron-builder extras
+    filename
+  );
+}
+
 function getDashboardTouchBar() {
   const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar;
 
   const historyBack = new TouchBarButton({
-    label: "⭠"
+    icon: getIcon("back.png")
   });
   const historyForward = new TouchBarButton({
     label: "⭢"
@@ -34,23 +44,24 @@ function getDashboardTouchBar() {
   });
 }
 
-function getDockTouchBar() {
+function getDockTouchBar(dockTabs: IDockTab[]) {
   const { TouchBarLabel, TouchBarButton, TouchBarScrubber } = TouchBar;
+
+  // TODO: add tab icons
   const tabs = new TouchBarScrubber({
-    items: [
-      { label: "Terminal 1" },
-      { label: "Terminal 2" },
-      { label: "Pod logs" },
-      { label: "Logs unofuturo" },
-      { label: "New Seoul tab" },
-      { label: "Create new resource" },
-    ],
+    items: dockTabs.map(tab => ({ label: tab.title })),
     selectedStyle: "outline",
-    continuous: false
+    continuous: false,
+    select: (selectedIndex) => {
+      broadcastMessage("select-dock-tab", selectedIndex);
+    }
   });
   const closeAll = new TouchBarButton({
     label: "Close All",
-    backgroundColor: "#e85555"
+    backgroundColor: "#e85555",
+    click: () => {
+      broadcastMessage("close-all-dock-tabs");
+    }
   });
 
   return new TouchBar({
@@ -63,40 +74,16 @@ function getDockTouchBar() {
 }
 
 function subscribeToEvents(window: BrowserWindow) {
-  const { TouchBarLabel, TouchBarButton, TouchBarScrubber } = TouchBar;
-
   ipcMain.handle("set-dock-touchbar", (event, dockTabs: IDockTab[]) => {
-    // TODO: add tab icons
-    const tabs = new TouchBarScrubber({
-      items: dockTabs.map(tab => ({ label: tab.title })),
-      selectedStyle: "outline",
-      continuous: false,
-      select: (selectedIndex) => {
-        broadcastMessage("select-dock-tab", selectedIndex);
-      }
-    });
-    const closeAll = new TouchBarButton({
-      label: "Close All",
-      backgroundColor: "#e85555",
-      click: () => {
-        broadcastMessage("close-all-dock-tabs");
-      }
-    });
-    const bar = new TouchBar({
-      items: [
-        new TouchBarLabel({ label: "Tabs" }),
-        tabs,
-        closeAll
-      ]
-    });
+    const touchBar = getDockTouchBar(dockTabs);
 
-    window.setTouchBar(bar);
+    window.setTouchBar(touchBar);
   });
 
   ipcMain.handle("set-general-touchbar", () => {
-    const bar = getDashboardTouchBar();
+    const touchBar = getDashboardTouchBar();
 
-    window.setTouchBar(bar);
+    window.setTouchBar(touchBar);
   });
 }
 
