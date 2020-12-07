@@ -2,20 +2,22 @@
 
 Here you can find description of changes we've built into each release. While we try our best to make each upgrade automatic and as smooth as possible, there may be some cases where you might need to do something to ensure the application works smoothly. So please read through the release highlights!
 
-## 4.0.0-rc.1 (current version)
+## 4.0.0-rc.3 (current version)
 
 - Extension API
 - Improved pod logs
 - Mechanism for users to specify accessible namespaces
 - Tray icon
+- Support networking.k8s.io/v1 for Ingress
 - Add last-status information for container
 - Add LoadBalancer information to Ingress view
 - Add search by ip to Pod view
+- Add Ready status column in the Deployment view
+- Add +/- buttons in scale deployment popup screen
+- Add stateful set scale slider
 - Move tracker to an extension
 - Ability to restart deployment
-- Add stateful set scale slider
 - Status bar visual fixes
-- Add +/- buttons in scale deployment popup screen
 - Update chart details when selecting another chart
 - Use latest alpine version (3.12) for shell sessions
 - Open last active cluster after switching workspaces
@@ -24,9 +26,17 @@ Here you can find description of changes we've built into each release. While we
 - Update EULA url
 - Change add-cluster to single column layout
 - Replace cluster warning event polling with watches
+- Detect more Kubernetes distributions
+- Performance fix when cluster has lots of namespaces
 - Fix pod usage metrics on Kubernetes >=1.19
 - Fix proxy upgrade socket timeouts
 - Fix UI staleness after network issues
+- Fix errors on app quit
+- Fix kube-auth-proxy to accept only target cluster hostname
+- Fix link to metrics stack resources
+
+## 3.6.9
+- Use Alpine 3.12 for node shell sessions
 - Fix errors on app quit
 - Fix kube-auth-proxy to accept only target cluster hostname
 
