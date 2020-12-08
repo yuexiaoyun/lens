@@ -19,7 +19,8 @@ import startCase from "lodash/startCase";
 import kebabCase from "lodash/kebabCase";
 import { lookupApiLink } from "../../api/kube-api";
 import { KubeObjectStatusIcon } from "../kube-object-status-icon";
-
+import { TouchChannels } from "../../../main/touch-bar";
+import { ipcRenderer } from "electron";
 
 enum sortBy {
   name = "name",
@@ -37,6 +38,12 @@ interface Props extends RouteComponentProps<IPodsRouteParams> {
 
 @observer
 export class Pods extends React.Component<Props> {
+  componentDidMount() {
+    const statuses = podsStore.getStatuses(podsStore.items);
+
+    ipcRenderer.invoke(TouchChannels.SetPodsBar, statuses);
+  }
+
   renderContainersStatus(pod: Pod) {
     return pod.getContainerStatuses().map(containerStatus => {
       const { name, state, ready } = containerStatus;
