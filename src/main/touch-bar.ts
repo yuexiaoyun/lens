@@ -10,6 +10,8 @@ export enum TouchChannels {
   SetPodsBar = "touchbar:set-pods-bar",
   SelectDockTab = "touchbar:select-dock-tab",
   CloseAllDockTabs = "touchbar:close-all-dock-tabs",
+  OpenCreateResouce = "touchbar:open-create-resource-tab",
+  OpenTerminal = "touchbar:open-terminal-tab"
 }
 
 function getIcon(filename: string): NativeImage {
@@ -23,7 +25,7 @@ function getIcon(filename: string): NativeImage {
 }
 
 function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
-  const { TouchBarSpacer, TouchBarSegmentedControl } = TouchBar;
+  const { TouchBarSpacer, TouchBarSegmentedControl, TouchBarButton } = TouchBar;
   const historySegment = new TouchBarSegmentedControl({
     mode: "buttons",
     segments: [
@@ -37,13 +39,13 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
     }
   });
 
-  const dockSegment = new TouchBarSegmentedControl({
-    mode: "buttons",
-    segments: [
-      { label: "T" },
-      { label: "+" }
-    ]
-  });
+  // const dockSegment = new TouchBarSegmentedControl({
+  //   mode: "buttons",
+  //   segments: [
+  //     { label: "T" },
+  //     { label: "+" }
+  //   ]
+  // });
 
   // const historyBack = new TouchBarButton({
   //   icon: getIcon("back.png")
@@ -51,19 +53,21 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
   // const historyForward = new TouchBarButton({
   //   label: "⭢"
   // });
-  // const terminal = new TouchBarButton({
-  //   label: "T"
-  // });
-  // const createResource = new TouchBarButton({
-  //   label: "+",
-  //   backgroundColor: "#3d90ce"
-  // });
+  const terminal = new TouchBarButton({
+    label: "T"
+  });
+  const createResource = new TouchBarButton({
+    label: "+",
+    backgroundColor: "#3d90ce",
+    click: () => broadcastMessage(TouchChannels.OpenCreateResouce)
+  });
 
   return new TouchBar({
     items: [
       historySegment,
       centralGroup || new TouchBarSpacer({ size: "flexible" }),
-      dockSegment
+      terminal,
+      createResource
     ]
   });
 }
@@ -76,7 +80,7 @@ function getDockTouchBar(dockTabs: IDockTab[]) {
     selectedStyle: "outline",
     continuous: false,
     select: (selectedIndex) => {
-      broadcastMessage("select-dock-tab", selectedIndex);
+      broadcastMessage(TouchChannels.SelectDockTab, selectedIndex);
     }
   });
   const closeAll = new TouchBarButton({
@@ -86,13 +90,18 @@ function getDockTouchBar(dockTabs: IDockTab[]) {
       broadcastMessage("close-all-dock-tabs");
     }
   });
+  const esc = new TouchBarButton({
+    label: "esc",
+    click: () => broadcastMessage(TouchChannels.SetTouchBar)
+  });
 
   return new TouchBar({
     items: [
       new TouchBarLabel({ label: "Tabs" }),
       tabs,
       closeAll
-    ]
+    ],
+    escapeItem: esc
   });
 }
 
@@ -117,14 +126,14 @@ function setTouchBar(window: BrowserWindow, touchBar: TouchBar) {
 }
 
 function subscribeToEvents(window: BrowserWindow) {
-  ipcMain.handle("set-dock-touchbar", (event, dockTabs: IDockTab[]) => {
+  ipcMain.handle(TouchChannels.SetTouchBar, () => {
+    setTouchBar(window, getDashboardTouchBar());
+  });
+
+  ipcMain.handle(TouchChannels.SetDockBar, (event, dockTabs: IDockTab[]) => {
     const touchBar = getDockTouchBar(dockTabs);
 
     window.setTouchBar(touchBar);
-  });
-
-  ipcMain.handle("set-general-touchbar", () => {
-    setTouchBar(window, getDashboardTouchBar());
   });
 
   ipcMain.handle(TouchChannels.SetPodsBar, (event, podStatuses: { [key: string]: number }) => {

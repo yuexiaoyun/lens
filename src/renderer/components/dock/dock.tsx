@@ -25,6 +25,7 @@ import { isUpgradeChartTab } from "./upgrade-chart.store";
 import { PodLogs } from "./pod-logs";
 import { isPodLogsTab } from "./pod-logs.store";
 import { ipcRenderer } from "electron";
+import { TouchChannels } from "../../../main/touch-bar";
 import { toJS } from "mobx";
 
 interface Props {
@@ -34,19 +35,21 @@ interface Props {
 @observer
 export class Dock extends React.Component<Props> {
   componentDidMount() {
-    ipcRenderer.on("close-all-dock-tabs", () => {
+    ipcRenderer.on(TouchChannels.OpenCreateResouce, () => {
+      createResourceTab();
+    });
+    ipcRenderer.on(TouchChannels.OpenTerminal, () => {
+      createTerminalTab();
+    });
+    ipcRenderer.on(TouchChannels.CloseAllDockTabs, () => {
       dockStore.reset();
     });
-    ipcRenderer.on("select-dock-tab", (event, selectedIndex: number) => {
+    ipcRenderer.on(TouchChannels.SelectDockTab, (event, selectedIndex: number) => {
       const tab = dockStore.tabs[selectedIndex];
 
       if (!tab) return;
       this.onChangeTab(tab);
     });
-  }
-
-  componentWillUnmount() {
-    ipcRenderer.invoke("set-general-touchbar");
   }
 
   onKeydown = (evt: React.KeyboardEvent<HTMLElement>) => {
@@ -74,12 +77,8 @@ export class Dock extends React.Component<Props> {
 
   onFocus = () => {
     if (dockStore.isOpen) {
-      ipcRenderer.invoke("set-dock-touchbar", toJS(dockStore.tabs));
+      ipcRenderer.invoke(TouchChannels.SetDockBar, toJS(dockStore.tabs));
     }
-  };
-
-  onBlur = () => {
-    ipcRenderer.invoke("set-general-touchbar");
   };
 
   @autobind()
@@ -126,9 +125,8 @@ export class Dock extends React.Component<Props> {
       <div
         className={cssNames("Dock", className, { isOpen, fullSize })}
         onKeyDown={this.onKeydown}
-        tabIndex={-1}
         onFocus={this.onFocus}
-        onBlur={this.onBlur}
+        tabIndex={-1}
       >
         <ResizingAnchor
           disabled={!hasTabs()}
