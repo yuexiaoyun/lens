@@ -29,7 +29,12 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
     segments: [
       { icon: getIcon("back.png") },
       { label: "->" }
-    ]
+    ],
+    change: (selectedIndex) => {
+      const direction = selectedIndex == 0 ? "back" : "forward";
+
+      broadcastMessage("renderer:navigate-history", direction);
+    }
   });
 
   const dockSegment = new TouchBarSegmentedControl({

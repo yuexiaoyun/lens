@@ -134,3 +134,14 @@ subscribeToBroadcast("renderer:navigate", (event, location: LocationDescriptor) 
 subscribeToBroadcast("renderer:reload", () => {
   location.reload();
 });
+
+// Handle history navigation
+subscribeToBroadcast("renderer:navigate-history", (event, direction: "back" | "forward") => {
+  logger.info(`[IPC]: Navigating ${direction} in history`, event);
+
+  if (direction == "back") {
+    navigation.goBack();
+  } else {
+    navigation.goForward();
+  }
+});
