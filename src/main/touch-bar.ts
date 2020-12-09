@@ -31,8 +31,8 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
   const historySegment = new TouchBarSegmentedControl({
     mode: "buttons",
     segments: [
-      { icon: getIcon("back.png") },
-      { label: "->" }
+      { icon: getIcon("back.png")  },
+      { icon: getIcon("forward.png") }
     ],
     change: (selectedIndex) => {
       const direction = selectedIndex == 0 ? "back" : "forward";
@@ -44,8 +44,8 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
   const dockSegment = new TouchBarSegmentedControl({
     mode: "buttons",
     segments: [
-      { label: "T" },
-      { label: "+" }
+      { icon: getIcon("terminal.png") },
+      { icon: getIcon("add.png") }
     ],
     change: (selectedIndex) => {
       const tab = selectedIndex == 0 ? TouchChannels.OpenTerminal : TouchChannels.OpenCreateResouce;
