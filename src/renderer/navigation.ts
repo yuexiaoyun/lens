@@ -136,12 +136,14 @@ subscribeToBroadcast("renderer:reload", () => {
 });
 
 // Handle history navigation
-subscribeToBroadcast("renderer:navigate-history", (event, direction: "back" | "forward") => {
-  logger.info(`[IPC]: Navigating ${direction} in history`, event);
+if (!process.isMainFrame) {
+  subscribeToBroadcast("renderer:navigate-history", (event, direction: "back" | "forward") => {
+    logger.info(`[IPC]: Navigating ${direction} in history`, event);
 
-  if (direction == "back") {
-    navigation.goBack();
-  } else {
-    navigation.goForward();
-  }
-});
+    if (direction == "back") {
+      navigation.goBack();
+    } else {
+      navigation.goForward();
+    }
+  });
+}

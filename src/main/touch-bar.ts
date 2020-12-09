@@ -98,7 +98,6 @@ function getDockTouchBar(dockTabs: IDockTab[]) {
 
 function getPodsTouchBar(statuses: { [key: string]: number }) {
   const items = Object.entries(statuses).map(([key, value]) => {
-    // TODO: Add status icons
     return {
       label: `${key}: ${value}`
     };
