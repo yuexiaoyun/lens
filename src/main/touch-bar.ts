@@ -39,35 +39,24 @@ function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
     }
   });
 
-  // const dockSegment = new TouchBarSegmentedControl({
-  //   mode: "buttons",
-  //   segments: [
-  //     { label: "T" },
-  //     { label: "+" }
-  //   ]
-  // });
+  const dockSegment = new TouchBarSegmentedControl({
+    mode: "buttons",
+    segments: [
+      { label: "T" },
+      { label: "+" }
+    ],
+    change: (selectedIndex) => {
+      const tab = selectedIndex == 0 ? TouchChannels.OpenTerminal : TouchChannels.OpenCreateResouce;
 
-  // const historyBack = new TouchBarButton({
-  //   icon: getIcon("back.png")
-  // });
-  // const historyForward = new TouchBarButton({
-  //   label: "⭢"
-  // });
-  const terminal = new TouchBarButton({
-    label: "T"
-  });
-  const createResource = new TouchBarButton({
-    label: "+",
-    backgroundColor: "#3d90ce",
-    click: () => broadcastMessage(TouchChannels.OpenCreateResouce)
+      broadcastMessage(tab);
+    }
   });
 
   return new TouchBar({
     items: [
       historySegment,
       centralGroup || new TouchBarSpacer({ size: "flexible" }),
-      terminal,
-      createResource
+      dockSegment
     ]
   });
 }
