@@ -11,6 +11,8 @@ import { Icon } from "../icon";
 import { Slider } from "../slider";
 import { Notifications } from "../notifications";
 import { cssNames } from "../../utils";
+import { ipcRenderer } from "electron";
+import { TouchChannels } from "../../../main/touch-bar";
 
 interface Props extends Partial<DialogProps> {
 }
@@ -31,6 +33,10 @@ export class DeploymentScaleDialog extends Component<Props> {
 
   static close() {
     DeploymentScaleDialog.isOpen = false;
+  }
+
+  componentDidMount() {
+    ipcRenderer.on(TouchChannels.ChangeSliderValue, (event, newValue: number) => this.onChange(null, newValue));
   }
 
   get deployment() {
@@ -58,14 +64,28 @@ export class DeploymentScaleDialog extends Component<Props> {
       name: deployment.getName(),
     });
     this.desiredReplicas = this.currentReplicas;
+    this.setTouchBar();
     this.ready = true;
+  };
+
+  setTouchBar = () => {
+    const params = {
+      label: "Scale Deployment",
+      value: this.currentReplicas,
+      minValue: 0,
+      maxValue: this.scaleMax
+    };
+
+    ipcRenderer.invoke(TouchChannels.SetSliderBar, params);
   };
 
   onClose = () => {
     this.ready = false;
+    ipcRenderer.invoke(TouchChannels.Reset);
   };
 
   onChange = (evt: React.ChangeEvent, value: number) => {
+    if (!DeploymentScaleDialog.isOpen) return;
     this.desiredReplicas = value;
   };
 
@@ -89,7 +109,7 @@ export class DeploymentScaleDialog extends Component<Props> {
   desiredReplicasUp = () => {
     this.desiredReplicas < this.scaleMax && this.desiredReplicas++;
   };
-  
+
   desiredReplicasDown = () => {
     this.desiredReplicas > 1 && this.desiredReplicas--;
   };

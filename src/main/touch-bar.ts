@@ -1,17 +1,19 @@
 import path from "path";
 import { isDevelopment } from "../common/vars";
-import { BrowserWindow, ipcMain, NativeImage, nativeImage, TouchBar, TouchBarGroup } from "electron";
+import { BrowserWindow, ipcMain, NativeImage, nativeImage, TouchBar, TouchBarGroup, TouchBarSlider } from "electron";
 import { broadcastMessage } from "../common/ipc";
 import { IDockTab } from "../renderer/components/dock/dock.store";
 
 export enum TouchChannels {
-  SetTouchBar = "touchbar:set-touch-bar",
+  Reset = "touchbar:set-touch-bar",
   SetDockBar = "touchbar:set-dock-bar",
   SetPodsBar = "touchbar:set-pods-bar",
+  SetSliderBar = "touchbar:set-slider-bar",
   SelectDockTab = "touchbar:select-dock-tab",
   CloseAllDockTabs = "touchbar:close-all-dock-tabs",
   OpenCreateResouce = "touchbar:open-create-resource-tab",
-  OpenTerminal = "touchbar:open-terminal-tab"
+  OpenTerminal = "touchbar:open-terminal-tab",
+  ChangeSliderValue = "touchbar:change-slider-value"
 }
 
 function getIcon(filename: string): NativeImage {
@@ -25,7 +27,7 @@ function getIcon(filename: string): NativeImage {
 }
 
 function getDashboardTouchBar(centralGroup?: TouchBarGroup) {
-  const { TouchBarSpacer, TouchBarSegmentedControl, TouchBarButton } = TouchBar;
+  const { TouchBarSpacer, TouchBarSegmentedControl } = TouchBar;
   const historySegment = new TouchBarSegmentedControl({
     mode: "buttons",
     segments: [
@@ -76,12 +78,12 @@ function getDockTouchBar(dockTabs: IDockTab[]) {
     label: "Close All",
     backgroundColor: "#e85555",
     click: () => {
-      broadcastMessage("close-all-dock-tabs");
+      broadcastMessage(TouchChannels.CloseAllDockTabs);
     }
   });
   const esc = new TouchBarButton({
     label: "esc",
-    click: () => broadcastMessage(TouchChannels.SetTouchBar)
+    click: () => broadcastMessage(TouchChannels.Reset)
   });
 
   return new TouchBar({
@@ -110,14 +112,23 @@ function getPodsTouchBar(statuses: { [key: string]: number }) {
   return getDashboardTouchBar(tabs);
 }
 
+function getSliderBar(params: TouchBarSlider) {
+  const slider = new TouchBar.TouchBarSlider({
+    ...params,
+    change: (newValue) => broadcastMessage(TouchChannels.ChangeSliderValue, newValue)
+  });
+
+  return new TouchBar({
+    items: [slider]
+  });
+}
+
 function setTouchBar(window: BrowserWindow, touchBar: TouchBar) {
   window.setTouchBar(touchBar);
 }
 
 function subscribeToEvents(window: BrowserWindow) {
-  ipcMain.handle(TouchChannels.SetTouchBar, () => {
-    setTouchBar(window, getDashboardTouchBar());
-  });
+  ipcMain.handle(TouchChannels.Reset, () => setTouchBar(window, getDashboardTouchBar()));
 
   ipcMain.handle(TouchChannels.SetDockBar, (event, dockTabs: IDockTab[]) => {
     const touchBar = getDockTouchBar(dockTabs);
@@ -127,6 +138,12 @@ function subscribeToEvents(window: BrowserWindow) {
 
   ipcMain.handle(TouchChannels.SetPodsBar, (event, podStatuses: { [key: string]: number }) => {
     const touchBar = getPodsTouchBar(podStatuses);
+
+    setTouchBar(window, touchBar);
+  });
+
+  ipcMain.handle(TouchChannels.SetSliderBar, (event, params: TouchBarSlider) => {
+    const touchBar = getSliderBar(params);
 
     setTouchBar(window, touchBar);
   });
