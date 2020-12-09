@@ -44,6 +44,10 @@ export class Pods extends React.Component<Props> {
     ipcRenderer.invoke(TouchChannels.SetPodsBar, statuses);
   }
 
+  componentWillUnmount() {
+    ipcRenderer.invoke(TouchChannels.Reset);
+  }
+
   renderContainersStatus(pod: Pod) {
     return pod.getContainerStatuses().map(containerStatus => {
       const { name, state, ready } = containerStatus;

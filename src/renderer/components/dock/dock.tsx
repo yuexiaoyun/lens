@@ -87,6 +87,7 @@ export class Dock extends React.Component<Props> {
   };
 
   onClickOutside = (evt: MouseEvent) => {
+    if (!dockStore.isOpen) return;
     const target = evt.target as HTMLElement;
     const clickInDock = this.elem.current.contains(target);
 
