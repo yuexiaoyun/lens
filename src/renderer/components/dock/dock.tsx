@@ -34,15 +34,14 @@ interface Props {
 
 @observer
 export class Dock extends React.Component<Props> {
+  private elem = React.createRef<HTMLDivElement>();
+
   componentDidMount() {
-    ipcRenderer.on(TouchChannels.OpenCreateResouce, () => {
-      createResourceTab();
-    });
-    ipcRenderer.on(TouchChannels.OpenTerminal, () => {
-      createTerminalTab();
-    });
+    ipcRenderer.on(TouchChannels.OpenCreateResouce, () => createResourceTab());
+    ipcRenderer.on(TouchChannels.OpenTerminal, () => createTerminalTab());
     ipcRenderer.on(TouchChannels.CloseAllDockTabs, () => {
       dockStore.reset();
+      ipcRenderer.invoke(TouchChannels.Reset);
     });
     ipcRenderer.on(TouchChannels.SelectDockTab, (event, selectedIndex: number) => {
       const tab = dockStore.tabs[selectedIndex];
@@ -50,6 +49,12 @@ export class Dock extends React.Component<Props> {
       if (!tab) return;
       this.onChangeTab(tab);
     });
+
+    window.addEventListener("click", this.onClickOutside);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("click", this.onClickOutside);
   }
 
   onKeydown = (evt: React.KeyboardEvent<HTMLElement>) => {
@@ -79,6 +84,22 @@ export class Dock extends React.Component<Props> {
     if (dockStore.isOpen) {
       ipcRenderer.invoke(TouchChannels.SetDockBar, toJS(dockStore.tabs));
     }
+  };
+
+  onClickOutside = (evt: MouseEvent) => {
+    const target = evt.target as HTMLElement;
+    const clickInDock = this.elem.current.contains(target);
+
+    if (!clickInDock) {
+      ipcRenderer.invoke(TouchChannels.Reset);
+    }
+  };
+
+  toggle = () => {
+    if (dockStore.isOpen) {
+      ipcRenderer.invoke(TouchChannels.Reset);
+    }
+    dockStore.toggle();
   };
 
   @autobind()
@@ -126,6 +147,7 @@ export class Dock extends React.Component<Props> {
         className={cssNames("Dock", className, { isOpen, fullSize })}
         onKeyDown={this.onKeydown}
         onFocus={this.onFocus}
+        ref={this.elem}
         tabIndex={-1}
       >
         <ResizingAnchor
@@ -170,7 +192,7 @@ export class Dock extends React.Component<Props> {
                 <Icon
                   material={`keyboard_arrow_${isOpen ? "down" : "up"}`}
                   tooltip={isOpen ? <Trans>Minimize</Trans> : <Trans>Open</Trans>}
-                  onClick={toggle}
+                  onClick={this.toggle}
                 />
               </>
             )}
