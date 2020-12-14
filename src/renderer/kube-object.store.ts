@@ -6,7 +6,7 @@ import { ItemStore } from "./item.store";
 import { apiManager } from "./api/api-manager";
 import { IKubeApiQueryParams, KubeApi } from "./api/kube-api";
 import { KubeJsonApiData } from "./api/kube-json-api";
-import { getHostedCluster } from "../common/cluster-store";
+import { getHostedCluster } from "./stores";
 
 @autobind()
 export abstract class KubeObjectStore<T extends KubeObject = any> extends ItemStore<T> {

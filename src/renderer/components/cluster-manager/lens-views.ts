@@ -1,7 +1,8 @@
 import { observable, when } from "mobx";
-import { ClusterId, clusterStore, getClusterFrameUrl } from "../../../common/cluster-store";
+import { ClusterId } from "../../../common/cluster-store";
 import { getMatchedClusterId } from "../../navigation";
 import logger from "../../../main/logger";
+import { clusterStore, getClusterFrameUrl } from "../../stores";
 
 export interface LensView {
   isLoaded?: boolean

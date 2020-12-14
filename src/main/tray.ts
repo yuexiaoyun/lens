@@ -5,13 +5,12 @@ import { autorun } from "mobx";
 import { showAbout } from "./menu";
 import { AppUpdater } from "./app-updater";
 import { WindowManager } from "./window-manager";
-import { clusterStore } from "../common/cluster-store";
-import { workspaceStore } from "../common/workspace-store";
 import { preferencesURL } from "../renderer/components/+preferences/preferences.route";
 import { clusterViewURL } from "../renderer/components/cluster-manager/cluster-view.route";
 import logger from "./logger";
 import { isDevelopment } from "../common/vars";
 import { exitApp } from "./exit-app";
+import { workspaceStore, clusterStore } from "./stores";
 
 // note: instance of Tray should be saved somewhere, otherwise it disappears
 export let tray: Tray;

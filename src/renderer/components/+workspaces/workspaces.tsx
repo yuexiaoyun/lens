@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import { computed, observable, toJS } from "mobx";
 import { t, Trans } from "@lingui/macro";
 import { WizardLayout } from "../layout/wizard-layout";
-import { Workspace, WorkspaceId, workspaceStore } from "../../../common/workspace-store";
+import { Workspace, WorkspaceId } from "../../../common/workspace-store";
 import { v4 as uuid } from "uuid";
 import { _i18n } from "../../i18n";
 import { ConfirmDialog } from "../confirm-dialog";
@@ -13,7 +13,7 @@ import { Input } from "../input";
 import { cssNames, prevDefault } from "../../utils";
 import { Button } from "../button";
 import { isRequired, InputValidator } from "../input/input_validators";
-import { clusterStore } from "../../../common/cluster-store";
+import { clusterStore, workspaceStore } from "../../stores";
 
 @observer
 export class Workspaces extends React.Component {

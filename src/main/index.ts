@@ -16,9 +16,7 @@ import { getFreePort } from "./port";
 import { mangleProxyEnv } from "./proxy-env";
 import { registerFileProtocol } from "../common/register-protocol";
 import logger from "./logger";
-import { clusterStore } from "../common/cluster-store";
 import { userStore } from "../common/user-store";
-import { workspaceStore } from "../common/workspace-store";
 import { appEventBus } from "../common/event-bus";
 import { extensionLoader } from "../extensions/extension-loader";
 import { extensionsStore } from "../extensions/extensions-store";
@@ -26,6 +24,8 @@ import { InstalledExtension, extensionDiscovery } from "../extensions/extension-
 import type { LensExtensionId } from "../extensions/lens-extension";
 import { installDeveloperTools } from "./developer-tools";
 import { filesystemProvisionerStore } from "./extension-filesystem";
+import { clusterStore } from "./stores";
+import { workspaceStore } from "../renderer/stores";
 
 const workingDir = path.join(app.getPath("appData"), appName);
 let proxyPort: number;

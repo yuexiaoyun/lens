@@ -2,10 +2,10 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { workspacesURL } from "../../+workspaces";
-import { workspaceStore } from "../../../../common/workspace-store";
 import { Cluster } from "../../../../main/cluster";
 import { Select } from "../../../components/select";
 import { SubTitle } from "../../layout/sub-title";
+import { workspaceStore } from "../../../stores";
 
 interface Props {
   cluster: Cluster;

@@ -1,12 +1,13 @@
-import "../common/cluster-ipc";
+import "./stores/cluster-ipc";
 import type http from "http";
 import { ipcMain } from "electron";
 import { autorun } from "mobx";
-import { clusterStore, getClusterIdFromHost } from "../common/cluster-store";
+import { clusterStore } from "./stores/cluster-store";
 import { Cluster } from "./cluster";
 import logger from "./logger";
 import { apiKubePrefix } from "../common/vars";
 import { Singleton } from "../common/utils";
+import { getClusterIdFromHost } from "../common/cluster-store";
 
 export class ClusterManager extends Singleton {
   constructor(public readonly port: number) {

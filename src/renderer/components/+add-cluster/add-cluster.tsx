@@ -13,8 +13,7 @@ import { AceEditor } from "../ace-editor";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { kubeConfigDefaultPath, loadConfig, splitConfig, validateConfig, validateKubeConfig } from "../../../common/kube-helpers";
-import { ClusterModel, ClusterStore, clusterStore } from "../../../common/cluster-store";
-import { workspaceStore } from "../../../common/workspace-store";
+import { ClusterModel, ClusterStore } from "../../../common/cluster-store";
 import { v4 as uuid } from "uuid";
 import { navigate } from "../../navigation";
 import { userStore } from "../../../common/user-store";
@@ -26,6 +25,7 @@ import { ExecValidationNotFoundError } from "../../../common/custom-errors";
 import { appEventBus } from "../../../common/event-bus";
 import { PageLayout } from "../layout/page-layout";
 import { docsUrl } from "../../../common/vars";
+import { clusterStore, workspaceStore } from "../../stores";
 
 enum KubeConfigSourceTab {
   FILE = "file",

@@ -1,11 +1,11 @@
-import { Store } from "@k8slens/extensions";
+import { Stores } from "@k8slens/extensions";
 import { observable, toJS } from "mobx";
 
 export type TelemetryPreferencesModel = {
   enabled: boolean;
 };
 
-export class TelemetryPreferencesStore extends Store.ExtensionStore<TelemetryPreferencesModel> {
+export class TelemetryPreferencesStore extends Stores.ExtensionStore<TelemetryPreferencesModel> {
 
   @observable  enabled = true;
 

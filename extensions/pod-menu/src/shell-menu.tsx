@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Component, K8sApi, Util, Navigation } from "@k8slens/extensions";
 

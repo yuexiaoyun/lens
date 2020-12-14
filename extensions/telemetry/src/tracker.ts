@@ -1,10 +1,12 @@
-import { EventBus, Util, Store, App } from "@k8slens/extensions";
+import { EventBus, Util, CoreStores, App, StoreEntries } from "@k8slens/extensions";
 import ua from "universal-analytics";
 import Analytics from "analytics-node";
 import { machineIdSync } from "node-machine-id";
 import { telemetryPreferencesStore } from "./telemetry-preferences-store";
 import { reaction, IReactionDisposer } from "mobx";
 import { comparer } from "mobx";
+
+const { workspaceStore, clusterStore } = CoreStores;
 
 export class Tracker extends Util.Singleton {
   static readonly GA_ID = "UA-159377374-1";
@@ -53,9 +55,12 @@ export class Tracker extends Util.Singleton {
 
     this.eventHandlers.push(handler);
     EventBus.appEventBus.addListener(handler);
+
+    this.reportPeriodically();
+    this.watchExtensions();
   }
 
-  watchExtensions() {
+  private watchExtensions() {
     let previousExtensions = App.getEnabledExtensions();
 
     this.disposers.push(reaction(() => App.getEnabledExtensions(), (currentExtensions) => {
@@ -73,7 +78,7 @@ export class Tracker extends Util.Singleton {
     }, { equals: comparer.structural }));
   }
 
-  reportPeriodically() {
+  private reportPeriodically() {
     this.reportData();
     this.reportInterval = setInterval(() => {
       this.reportData();
@@ -89,9 +94,7 @@ export class Tracker extends Util.Singleton {
       EventBus.appEventBus.removeListener(handler);
     }
 
-    if (this.reportInterval) {
-      clearInterval(this.reportInterval);
-    }
+    clearInterval(this.reportInterval);
     this.disposers.forEach(disposer => {
       disposer();
     });
@@ -102,54 +105,47 @@ export class Tracker extends Util.Singleton {
   }
 
   protected reportData() {
-    const clustersList = Store.clusterStore.enabledClustersList;
+    const clustersList = clusterStore.enabledClustersList;
 
     this.event("generic-data", "report", {
       appVersion: App.version,
       os: this.os,
       clustersCount: clustersList.length,
-      workspacesCount: Store.workspaceStore.enabledWorkspacesList.length,
+      workspacesCount: workspaceStore.enabledWorkspacesList.length,
       extensions: App.getEnabledExtensions()
     });
 
     clustersList.forEach((cluster) => {
-      if (!cluster?.metadata.lastSeen) { return; }
-      this.reportClusterData(cluster);
+      if (cluster?.metadata.lastSeen) {
+        this.reportClusterData(cluster);
+      }
     });
   }
 
-  protected reportClusterData(cluster: Store.ClusterModel) {
+  protected reportClusterData({ metadata, ownerRef }: StoreEntries.Cluster) {
     this.event("cluster-data", "report", {
-      id: cluster.metadata.id,
-      managed: !!cluster.ownerRef,
-      kubernetesVersion: cluster.metadata.version,
-      distribution: cluster.metadata.distribution,
-      nodesCount: cluster.metadata.nodes,
-      lastSeen: cluster.metadata.lastSeen,
-      prometheus: cluster.metadata.prometheus
+      id: metadata.id,
+      managed: !!ownerRef,
+      kubernetesVersion: metadata.version,
+      distribution: metadata.distribution,
+      nodesCount: metadata.nodes,
+      lastSeen: metadata.lastSeen,
+      prometheus: metadata.prometheus
     });
   }
 
   protected resolveOS() {
-    let os = "";
-
     if (App.isMac) {
-      os = "MacOS";
+      return "MacOS";
     } else if(App.isWindows) {
-      os = "Windows";
+      return "Windows";
     } else if (App.isLinux) {
-      os = "Linux";
+      const installSource = App.isSnap ? "Snap" : "AppImage";
 
-      if (App.isSnap) {
-        os += "; Snap";
-      } else {
-        os += "; AppImage";
-      }
+      return `Linux; ${installSource}`;
     } else {
-      os = "Unknown";
+      return "Unknown";
     }
-
-    return os;
   }
 
   protected async event(eventCategory: string, eventAction: string, otherParams = {}) {

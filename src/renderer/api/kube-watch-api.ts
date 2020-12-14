@@ -8,7 +8,7 @@ import type { KubeObjectStore } from "../kube-object.store";
 import { KubeApi } from "./kube-api";
 import { apiManager } from "./api-manager";
 import { apiPrefix, isDevelopment } from "../../common/vars";
-import { getHostedCluster } from "../../common/cluster-store";
+import { getHostedCluster } from "../stores";
 
 export interface IKubeWatchEvent<T = any> {
   type: "ADDED" | "MODIFIED" | "DELETED";

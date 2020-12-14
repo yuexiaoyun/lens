@@ -4,10 +4,8 @@ import React from "react";
 import * as Mobx from "mobx";
 import * as MobxReact from "mobx-react";
 import { render, unmountComponentAtNode } from "react-dom";
-import { clusterStore } from "../common/cluster-store";
 import { userStore } from "../common/user-store";
 import { isMac } from "../common/vars";
-import { workspaceStore } from "../common/workspace-store";
 import * as LensExtensions from "../extensions/extension-api";
 import { extensionDiscovery } from "../extensions/extension-discovery";
 import { extensionLoader } from "../extensions/extension-loader";
@@ -17,6 +15,7 @@ import { App } from "./components/app";
 import { i18nStore } from "./i18n";
 import { LensApp } from "./lens-app";
 import { themeStore } from "./theme.store";
+import { clusterStore, workspaceStore } from "./stores";
 
 type AppComponent = React.ComponentType & {
   init?(): Promise<void>;

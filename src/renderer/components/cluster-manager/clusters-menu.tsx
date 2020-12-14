@@ -9,8 +9,7 @@ import { observer } from "mobx-react";
 import { _i18n } from "../../i18n";
 import { t, Trans } from "@lingui/macro";
 import { userStore } from "../../../common/user-store";
-import { ClusterId, clusterStore } from "../../../common/cluster-store";
-import { workspaceStore } from "../../../common/workspace-store";
+import { ClusterId } from "../../../common/cluster-store";
 import { ClusterIcon } from "../cluster-icon";
 import { Icon } from "../icon";
 import { autobind, cssNames, IClassName } from "../../utils";
@@ -23,7 +22,9 @@ import { Tooltip } from "../tooltip";
 import { ConfirmDialog } from "../confirm-dialog";
 import { clusterViewURL } from "./cluster-view.route";
 import { getExtensionPageUrl, globalPageMenuRegistry, globalPageRegistry } from "../../../extensions/registries";
-import { clusterDisconnectHandler } from "../../../common/cluster-ipc";
+import { clusterDisconnectHandler } from "../../../main/stores/cluster-ipc";
+import { clusterStore } from "../../stores/cluster-store";
+import { workspaceStore } from "../../stores";
 
 interface Props {
   className?: IClassName;
@@ -112,7 +113,7 @@ export class ClustersMenu extends React.Component<Props> {
     const { newContexts } = userStore;
     const workspace = workspaceStore.getById(workspaceStore.currentWorkspaceId);
     const clusters = clusterStore.getByWorkspaceId(workspace.id).filter(cluster => cluster.enabled);
-    const activeClusterId = clusterStore.activeCluster;
+    const activeClusterId = clusterStore.activeClusterId;
 
     return (
       <div className={cssNames("ClustersMenu flex column", className)}>

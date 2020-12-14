@@ -7,8 +7,7 @@ import { disposeOnUnmount, observer } from "mobx-react";
 import { eventStore } from "../+events/event.store";
 import { nodesStore } from "../+nodes/nodes.store";
 import { podsStore } from "../+workloads-pods/pods.store";
-import { getHostedCluster } from "../../../common/cluster-store";
-import { isAllowedResource } from "../../../common/rbac";
+import { getHostedCluster } from "../../stores/cluster-store";
 import { KubeObjectStore } from "../../kube-object.store";
 import { interval } from "../../utils";
 import { TabLayout } from "../layout/tab-layout";
@@ -17,6 +16,7 @@ import { ClusterIssues } from "./cluster-issues";
 import { ClusterMetrics } from "./cluster-metrics";
 import { clusterOverviewStore } from "./cluster-overview.store";
 import { ClusterPieCharts } from "./cluster-pie-charts";
+import { isAllowedResource } from "../../utils/rbac";
 
 @observer
 export class ClusterOverview extends React.Component {

@@ -1,8 +1,7 @@
-import { workspaceStore } from "./workspace-store";
 import path from "path";
-import { app, ipcRenderer, remote, webFrame } from "electron";
+import { app, remote, webFrame } from "electron";
 import { unlink } from "fs-extra";
-import { action, comparer, computed, observable, reaction, toJS } from "mobx";
+import { action, comparer, computed, observable, toJS } from "mobx";
 import { BaseStore } from "./base-store";
 import { Cluster, ClusterState } from "../main/cluster";
 import migrations from "../migrations/cluster-store";
@@ -11,7 +10,7 @@ import { appEventBus } from "./event-bus";
 import { dumpConfigYaml } from "./kube-helpers";
 import { saveToAppFiles } from "./utils/saveToAppFiles";
 import { KubeConfig } from "@kubernetes/client-node";
-import { handleRequest, requestMain, subscribeToBroadcast, unsubscribeAllFromBroadcast } from "./ipc";
+import { subscribeToBroadcast, unsubscribeAllFromBroadcast } from "./ipc";
 import _ from "lodash";
 import move from "array-move";
 import type { WorkspaceId } from "./workspace-store";
@@ -38,6 +37,11 @@ export interface ClusterStoreModel {
 }
 
 export type ClusterId = string;
+
+export interface internal_ClusterStateSync {
+  id: string;
+  state: ClusterState;
+}
 
 export interface ClusterModel {
   /** Unique id for a cluster */
@@ -90,7 +94,7 @@ export interface ClusterPrometheusPreferences {
   };
 }
 
-export class ClusterStore extends BaseStore<ClusterStoreModel> {
+export abstract class ClusterStore extends BaseStore<ClusterStoreModel> {
   static getCustomKubeConfigPath(clusterId: ClusterId): string {
     return path.resolve((app || remote.app).getPath("userData"), "kubeconfigs", clusterId);
   }
@@ -104,13 +108,13 @@ export class ClusterStore extends BaseStore<ClusterStoreModel> {
     return filePath;
   }
 
-  @observable activeCluster: ClusterId;
+  @observable private activeCluster: ClusterId;
   @observable removedClusters = observable.map<ClusterId, Cluster>();
   @observable clusters = observable.map<ClusterId, Cluster>();
 
-  private static stateRequestChannel = "cluster:states";
+  protected static stateRequestChannel = "cluster:states";
 
-  private constructor() {
+  protected constructor() {
     super({
       configName: "lens-cluster-store",
       accessPropertiesByDotNotation: false, // To make dots safe in cluster context names
@@ -119,53 +123,10 @@ export class ClusterStore extends BaseStore<ClusterStoreModel> {
       },
       migrations,
     });
-
-    this.pushStateToViewsAutomatically();
   }
 
-  async load() {
+  async load(): Promise<void> {
     await super.load();
-    type clusterStateSync = {
-      id: string;
-      state: ClusterState;
-    };
-
-    if (ipcRenderer) {
-      logger.info("[CLUSTER-STORE] requesting initial state sync");
-      const clusterStates: clusterStateSync[] = await requestMain(ClusterStore.stateRequestChannel);
-
-      clusterStates.forEach((clusterState) => {
-        const cluster = this.getById(clusterState.id);
-
-        if (cluster) {
-          cluster.setState(clusterState.state);
-        }
-      });
-    } else {
-      handleRequest(ClusterStore.stateRequestChannel, (): clusterStateSync[] => {
-        const states: clusterStateSync[] = [];
-
-        this.clustersList.forEach((cluster) => {
-          states.push({
-            state: cluster.getState(),
-            id: cluster.id
-          });
-        });
-
-        return states;
-      });
-    }
-  }
-
-  protected pushStateToViewsAutomatically() {
-    if (!ipcRenderer) {
-      reaction(() => this.enabledClustersList, () => {
-        this.pushState();
-      });
-      reaction(() => this.connectedClustersList, () => {
-        this.pushState();
-      });
-    }
   }
 
   registerIpcListener() {
@@ -216,7 +177,6 @@ export class ClusterStore extends BaseStore<ClusterStoreModel> {
     const clusterId = this.clusters.has(id) ? id : null;
 
     this.activeCluster = clusterId;
-    workspaceStore.setLastActiveClusterId(clusterId);
   }
 
   @action
@@ -239,8 +199,8 @@ export class ClusterStore extends BaseStore<ClusterStoreModel> {
     return this.clusters.size > 0;
   }
 
-  getById(id: ClusterId): Cluster {
-    return this.clusters.get(id);
+  getById(id: ClusterId): Cluster | null {
+    return this.clusters.get(id) ?? null;
   }
 
   getByWorkspaceId(workspaceId: string): Cluster[] {
@@ -352,22 +312,8 @@ export class ClusterStore extends BaseStore<ClusterStoreModel> {
   }
 }
 
-export const clusterStore = ClusterStore.getInstance<ClusterStore>();
-
 export function getClusterIdFromHost(hostname: string): ClusterId {
   const subDomains = hostname.split(":")[0].split(".");
 
   return subDomains.slice(-2)[0]; // e.g host == "%clusterId.localhost:45345"
-}
-
-export function getClusterFrameUrl(clusterId: ClusterId) {
-  return `//${clusterId}.${location.host}`;
-}
-
-export function getHostedClusterId() {
-  return getClusterIdFromHost(location.hostname);
-}
-
-export function getHostedCluster(): Cluster {
-  return clusterStore.getById(getHostedClusterId());
 }

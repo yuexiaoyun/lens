@@ -7,11 +7,12 @@ import { Trans } from "@lingui/macro";
 import { Menu, MenuItem, MenuProps } from "../menu";
 import { Icon } from "../icon";
 import { observable } from "mobx";
-import { WorkspaceId, workspaceStore } from "../../../common/workspace-store";
+import { WorkspaceId } from "../../../common/workspace-store";
 import { cssNames } from "../../utils";
 import { navigate } from "../../navigation";
 import { clusterViewURL } from "../cluster-manager/cluster-view.route";
 import { landingURL } from "../+landing-page";
+import { workspaceStore } from "../../stores";
 
 interface Props extends Partial<MenuProps> {
 }

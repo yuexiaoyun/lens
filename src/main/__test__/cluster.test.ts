@@ -31,7 +31,6 @@ jest.mock("request-promise-native");
 
 import { Console } from "console";
 import mockFs from "mock-fs";
-import { workspaceStore } from "../../common/workspace-store";
 import { Cluster } from "../cluster";
 import { ContextHandler } from "../context-handler";
 import { getFreePort } from "../port";
@@ -39,6 +38,7 @@ import { V1ResourceAttributes } from "@kubernetes/client-node";
 import { apiResources } from "../../common/rbac";
 import request from "request-promise-native";
 import { Kubectl } from "../kubectl";
+import { workspaceStore } from "../stores";
 
 const mockedRequest = request as jest.MockedFunction<typeof request>;
 

@@ -1,11 +1,12 @@
 // Lens-extensions api developer's kit
 export * from "../lens-main-extension";
-export * from "../lens-renderer-extension";
 
 // APIs
 import * as App from "./app";
 import * as EventBus from "./event-bus";
-import * as Store from "./stores";
+import * as CoreStores from "./core-stores";
+import * as StoreEntries from "./entries";
+import * as Stores from "./stores";
 import * as Util from "./utils";
 import * as ClusterFeature from "./cluster-feature";
 import * as Interface from "../interfaces";
@@ -15,6 +16,8 @@ export {
   EventBus,
   ClusterFeature,
   Interface,
-  Store,
+  CoreStores,
+  Stores,
+  StoreEntries,
   Util,
 };

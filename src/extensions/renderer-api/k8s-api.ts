@@ -1,4 +1,4 @@
-export { isAllowedResource } from "../../common/rbac";
+export { isAllowedResource } from "../../renderer/utils/rbac";
 export { apiManager } from "../../renderer/api/api-manager";
 export { KubeObjectStore } from "../../renderer/kube-object.store";
 export { KubeApi, forCluster, IKubeApiCluster } from "../../renderer/api/kube-api";

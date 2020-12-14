@@ -11,10 +11,10 @@ import { General } from "./general";
 import { Cluster } from "../../../main/cluster";
 import { ClusterIcon } from "../cluster-icon";
 import { IClusterSettingsRouteParams } from "./cluster-settings.route";
-import { clusterStore } from "../../../common/cluster-store";
+import { clusterStore } from "../../stores/cluster-store";
 import { PageLayout } from "../layout/page-layout";
 import { requestMain } from "../../../common/ipc";
-import { clusterActivateHandler, clusterRefreshHandler } from "../../../common/cluster-ipc";
+import { clusterActivateHandler, clusterRefreshHandler } from "../../../main/stores/cluster-ipc";
 
 interface Props extends RouteComponentProps<IClusterSettingsRouteParams> {
 }

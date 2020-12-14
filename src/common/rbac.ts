@@ -1,5 +1,3 @@
-import { getHostedCluster } from "./cluster-store";
-
 export type KubeResource =
   "namespaces" | "nodes" | "events" | "resourcequotas" |
   "services" | "secrets" | "configmaps" | "ingresses" | "networkpolicies" | "persistentvolumes" | "storageclasses" |
@@ -37,18 +35,3 @@ export const apiResources: KubeApiResource[] = [
   { resource: "statefulsets", group: "apps" },
   { resource: "storageclasses", group: "storage.k8s.io" },
 ];
-
-export function isAllowedResource(resources: KubeResource | KubeResource[]) {
-  if (!Array.isArray(resources)) {
-    resources = [resources];
-  }
-  const { allowedResources = [] } = getHostedCluster() || {};
-
-  for (const resource of resources) {
-    if (!allowedResources.includes(resource)) {
-      return false;
-    }
-  }
-
-  return true;
-}

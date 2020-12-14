@@ -1,9 +1,10 @@
-import { handleRequest } from "./ipc";
-import { ClusterId, clusterStore } from "./cluster-store";
-import { appEventBus } from "./event-bus";
-import { ResourceApplier } from "../main/resource-applier";
+import { handleRequest } from "../../common/ipc";
+import { ClusterId } from "../../common/cluster-store";
+import { appEventBus } from "../../common/event-bus";
+import { ResourceApplier } from "../resource-applier";
 import { ipcMain } from "electron";
-import { clusterFrameMap } from "./cluster-frames";
+import { clusterFrameMap } from "../../common/cluster-frames";
+import { clusterStore } from "./cluster-store";
 
 export const clusterActivateHandler = "cluster:activate";
 export const clusterSetFrameIdHandler = "cluster:set-frame-id";

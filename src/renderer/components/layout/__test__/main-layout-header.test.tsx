@@ -6,8 +6,8 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { MainLayoutHeader } from "../main-layout-header";
 import { Cluster } from "../../../../main/cluster";
-import { workspaceStore } from "../../../../common/workspace-store";
 import { broadcastMessage } from "../../../../common/ipc";
+import { workspaceStore } from "../../../stores";
 
 const mockBroadcastIpc = broadcastMessage as jest.MockedFunction<typeof broadcastMessage>;
 

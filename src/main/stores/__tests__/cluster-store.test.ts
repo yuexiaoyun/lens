@@ -1,8 +1,8 @@
 import fs from "fs";
 import mockFs from "mock-fs";
 import yaml from "js-yaml";
-import { Cluster } from "../../main/cluster";
-import { ClusterStore } from "../cluster-store";
+import { Cluster } from "../../cluster";
+import { ClusterStore } from "../../../common/cluster-store";
 import { workspaceStore } from "../workspace-store";
 
 const testDataIcon = fs.readFileSync("test-data/cluster-store-migration-icon.png");

@@ -10,9 +10,10 @@ import { Icon } from "../icon";
 import { Button } from "../button";
 import { cssNames, IClassName } from "../../utils";
 import { Cluster } from "../../../main/cluster";
-import { ClusterId, clusterStore } from "../../../common/cluster-store";
+import { ClusterId } from "../../../common/cluster-store";
 import { CubeSpinner } from "../spinner";
-import { clusterActivateHandler } from "../../../common/cluster-ipc";
+import { clusterActivateHandler } from "../../../main/stores/cluster-ipc";
+import { clusterStore } from "../../stores/cluster-store";
 
 interface Props {
   className?: IClassName;

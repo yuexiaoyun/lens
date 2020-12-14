@@ -1,5 +1,6 @@
 import { KubeResource } from "../../common/rbac";
 import { _i18n } from "../i18n";
+import { getHostedCluster } from "../stores/cluster-store";
 
 export const ResourceNames: Record<KubeResource, string> = {
   "namespaces": _i18n._("Namespaces"),
@@ -26,3 +27,18 @@ export const ResourceNames: Record<KubeResource, string> = {
   "podsecuritypolicies": _i18n._("Pod Security Policies"),
   "poddisruptionbudgets": _i18n._("Pod Disruption Budgets"),
 };
+
+export function isAllowedResource(resources: KubeResource | KubeResource[]) {
+  if (!Array.isArray(resources)) {
+    resources = [resources];
+  }
+  const { allowedResources = [] } = getHostedCluster() || {};
+
+  for (const resource of resources) {
+    if (!allowedResources.includes(resource)) {
+      return false;
+    }
+  }
+
+  return true;
+}

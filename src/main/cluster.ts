@@ -11,10 +11,10 @@ import { Kubectl } from "./kubectl";
 import { KubeconfigManager } from "./kubeconfig-manager";
 import { loadConfig } from "../common/kube-helpers";
 import request, { RequestPromiseOptions } from "request-promise-native";
-import { apiResources } from "../common/rbac";
 import logger from "./logger";
 import { VersionDetector } from "./cluster-detectors/version-detector";
 import { detectorRegistry } from "./cluster-detectors/detector-registry";
+import { apiResources } from "../common/rbac";
 
 export enum ClusterStatus {
   AccessGranted = 2,

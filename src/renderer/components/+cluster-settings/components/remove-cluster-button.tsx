@@ -1,11 +1,11 @@
 import React from "react";
 import { Trans } from "@lingui/macro";
 import { observer } from "mobx-react";
-import { clusterStore } from "../../../../common/cluster-store";
 import { Cluster } from "../../../../main/cluster";
 import { autobind } from "../../../utils";
 import { Button } from "../../button";
 import { ConfirmDialog } from "../../confirm-dialog";
+import { clusterStore } from "../../../stores";
 
 interface Props {
   cluster: Cluster;

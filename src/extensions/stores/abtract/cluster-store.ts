@@ -1,70 +1,66 @@
-import { clusterStore as internalClusterStore, ClusterId } from "../../common/cluster-store";
-import type { ClusterModel } from "../../common/cluster-store";
-import { Cluster } from "../../main/cluster";
-import { Singleton } from "../core-api/utils";
 import { ObservableMap } from "mobx";
-
-export { Cluster } from "../../main/cluster";
-export type { ClusterModel, ClusterId } from "../../common/cluster-store";
+import { ClusterId, ClusterModel, ClusterStore } from "../../../common/cluster-store";
+import { Cluster } from "../../../main/cluster";
+import { Singleton } from "../../core-api/utils";
 
 /**
- * Store for all added clusters
+ * Stores all clusters
  *
  * @beta
  */
-export class ClusterStore extends Singleton {
+export abstract class ClusterStoreAbstract extends Singleton {
+  protected constructor(private internalClusterStore: ClusterStore) {
+    super();
+  }
 
   /**
    * Active cluster id
    */
   get activeClusterId(): string {
-    return internalClusterStore.activeCluster;
-  }
-
-  /**
-   * Set active cluster id
-   */
-  set activeClusterId(id : ClusterId) {
-    internalClusterStore.activeCluster = id;
+    return this.internalClusterStore.activeClusterId;
   }
 
   /**
    * Map of all clusters
    */
   get clusters(): ObservableMap<string, Cluster> {
-    return internalClusterStore.clusters;
+    return this.internalClusterStore.clusters;
   }
 
   /**
    * Get active cluster (a cluster which is currently visible)
    */
-  get activeCluster(): Cluster {
-    if (!this.activeClusterId) {
-      return null;
-    }
-
-    return this.getById(this.activeClusterId);
+  get activeCluster(): Cluster | null {
+    return this.internalClusterStore.active;
   }
 
   /**
    * Array of all clusters
    */
   get clustersList(): Cluster[] {
-    return internalClusterStore.clustersList;
+    return this.internalClusterStore.clustersList;
   }
 
   /**
    * Array of all enabled clusters
    */
   get enabledClustersList(): Cluster[] {
-    return internalClusterStore.enabledClustersList;
+    return this.internalClusterStore.enabledClustersList;
   }
 
   /**
    * Array of all clusters that have active connection to a Kubernetes cluster
    */
   get connectedClustersList(): Cluster[] {
-    return internalClusterStore.connectedClustersList;
+    return this.internalClusterStore.connectedClustersList;
+  }
+
+  /**
+   * Makes the clusterID active, and switches the main view to it
+   * @param clusterId cluster id
+   */
+  setActive(clusterId: ClusterId): void {
+    this.internalClusterStore.setActive(clusterId);
   }
 
   /**
@@ -72,7 +68,7 @@ export class ClusterStore extends Singleton {
    * @param id cluster id
    */
   getById(id: ClusterId): Cluster {
-    return internalClusterStore.getById(id);
+    return this.internalClusterStore.getById(id);
   }
 
   /**
@@ -80,7 +76,7 @@ export class ClusterStore extends Singleton {
    * @param workspaceId workspace id
    */
   getByWorkspaceId(workspaceId: string): Cluster[] {
-    return internalClusterStore.getByWorkspaceId(workspaceId);
+    return this.internalClusterStore.getByWorkspaceId(workspaceId);
   }
 
   /**
@@ -88,7 +84,7 @@ export class ClusterStore extends Singleton {
    * @param models list of cluster models
    */
   addClusters(...models: ClusterModel[]): Cluster[] {
-    return internalClusterStore.addClusters(...models);
+    return this.internalClusterStore.addClusters(...models);
   }
 
   /**
@@ -96,7 +92,7 @@ export class ClusterStore extends Singleton {
    * @param model cluster
    */
   addCluster(model: ClusterModel | Cluster): Cluster {
-    return internalClusterStore.addCluster(model);
+    return this.internalClusterStore.addCluster(model);
   }
 
   /**
@@ -104,7 +100,7 @@ export class ClusterStore extends Singleton {
    * @param model cluster
    */
   async removeCluster(model: ClusterModel) {
-    return this.removeById(model.id);
+    return this.internalClusterStore.removeCluster(model);
   }
 
   /**
@@ -112,7 +108,7 @@ export class ClusterStore extends Singleton {
    * @param clusterId cluster id
    */
   async removeById(clusterId: ClusterId) {
-    return internalClusterStore.removeById(clusterId);
+    return this.internalClusterStore.removeById(clusterId);
   }
 
   /**
@@ -120,9 +116,6 @@ export class ClusterStore extends Singleton {
    * @param workspaceId workspace id
    */
   removeByWorkspaceId(workspaceId: string) {
-    return internalClusterStore.removeByWorkspaceId(workspaceId);
+    return this.internalClusterStore.removeByWorkspaceId(workspaceId);
   }
 }
-
-
-export const clusterStore = ClusterStore.getInstance<ClusterStore>();

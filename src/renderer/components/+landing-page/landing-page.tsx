@@ -3,8 +3,7 @@ import React from "react";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
 import { Trans } from "@lingui/macro";
-import { clusterStore } from "../../../common/cluster-store";
-import { workspaceStore } from "../../../common/workspace-store";
+import { clusterStore, workspaceStore } from "../../stores";
 
 @observer
 export class LandingPage extends React.Component {

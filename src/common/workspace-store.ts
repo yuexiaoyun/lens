@@ -1,9 +1,8 @@
 import { ipcRenderer } from "electron";
 import { action, computed, observable, toJS, reaction } from "mobx";
 import { BaseStore } from "./base-store";
-import { clusterStore } from "./cluster-store";
 import { appEventBus } from "./event-bus";
-import { broadcastMessage, handleRequest, requestMain } from "../common/ipc";
+import { broadcastMessage } from "../common/ipc";
 import logger from "../main/logger";
 import type { ClusterId } from "./cluster-store";
 
@@ -130,11 +129,17 @@ export class Workspace implements WorkspaceModel, WorkspaceState {
   }
 }
 
-export class WorkspaceStore extends BaseStore<WorkspaceStoreModel> {
-  static readonly defaultId: WorkspaceId = "default";
-  private static stateRequestChannel = "workspace:states";
+export interface internal_WorkspaceStateSync {
+  id: string;
+  state: WorkspaceState;
+}
 
-  private constructor() {
+export abstract class WorkspaceStore extends BaseStore<WorkspaceStoreModel> {
+  static readonly defaultId: WorkspaceId = "default";
+  protected static stateRequestChannel = "workspace:states";
+  protected static updateStateRequestChannel = "workspace:state";
+
+  protected constructor() {
     super({
       configName: "lens-workspace-store",
     });
@@ -142,48 +147,18 @@ export class WorkspaceStore extends BaseStore<WorkspaceStoreModel> {
 
   async load() {
     await super.load();
-    type workspaceStateSync = {
-      id: string;
-      state: WorkspaceState;
-    };
-
-    if (ipcRenderer) {
-      logger.info("[WORKSPACE-STORE] requesting initial state sync");
-      const workspaceStates: workspaceStateSync[] = await requestMain(WorkspaceStore.stateRequestChannel);
-
-      workspaceStates.forEach((workspaceState) => {
-        const workspace = this.getById(workspaceState.id);
-
-        if (workspace) {
-          workspace.setState(workspaceState.state);
-        }
-      });
-    } else {
-      handleRequest(WorkspaceStore.stateRequestChannel, (): workspaceStateSync[] => {
-        const states: workspaceStateSync[] = [];
-
-        this.workspacesList.forEach((workspace) => {
-          states.push({
-            state: workspace.getState(),
-            id: workspace.id
-          });
-        });
-
-        return states;
-      });
-    }
   }
 
   registerIpcListener() {
     logger.info("[WORKSPACE-STORE] starting to listen state events");
-    ipcRenderer.on("workspace:state", (event, workspaceId: string, state: WorkspaceState) => {
+    ipcRenderer.on(WorkspaceStore.updateStateRequestChannel, (event, workspaceId: string, state: WorkspaceState) => {
       this.getById(workspaceId)?.setState(state);
     });
   }
 
   unregisterIpcListener() {
     super.unregisterIpcListener();
-    ipcRenderer.removeAllListeners("workspace:state");
+    ipcRenderer.removeAllListeners(WorkspaceStore.updateStateRequestChannel);
   }
 
   @observable currentWorkspaceId = WorkspaceStore.defaultId;
@@ -279,7 +254,6 @@ export class WorkspaceStore extends BaseStore<WorkspaceStoreModel> {
     }
     this.workspaces.delete(id);
     appEventBus.emit({name: "workspace", action: "remove"});
-    clusterStore.removeByWorkspaceId(id);
   }
 
   @action
@@ -315,5 +289,3 @@ export class WorkspaceStore extends BaseStore<WorkspaceStoreModel> {
     });
   }
 }
-
-export const workspaceStore = WorkspaceStore.getInstance<WorkspaceStore>();

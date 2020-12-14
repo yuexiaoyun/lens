@@ -3,9 +3,9 @@ import { EventEmitter } from "events";
 import { isEqual } from "lodash";
 import { action, computed, observable, reaction, toJS, when } from "mobx";
 import path from "path";
-import { getHostedCluster } from "../common/cluster-store";
 import { broadcastMessage, handleRequest, requestMain, subscribeToBroadcast } from "../common/ipc";
 import logger from "../main/logger";
+import { getHostedCluster } from "../renderer/stores/cluster-store";
 import type { InstalledExtension } from "./extension-discovery";
 import { extensionsStore } from "./extensions-store";
 import type { LensExtension, LensExtensionConstructor, LensExtensionId } from "./lens-extension";
@@ -71,7 +71,7 @@ export class ExtensionLoader {
     }
 
     await Promise.all([this.whenLoaded, extensionsStore.whenLoaded]);
-    
+
     // save state on change `extension.isEnabled`
     reaction(() => this.storeState, extensionsState => {
       extensionsStore.mergeState(extensionsState);
@@ -136,7 +136,7 @@ export class ExtensionLoader {
       this.syncExtensions(extensions);
 
       const receivedExtensionIds = extensions.map(([lensExtensionId]) => lensExtensionId);
-          
+
       // Remove deleted extensions in renderer side only
       this.extensions.forEach((_, lensExtensionId) => {
         if (!receivedExtensionIds.includes(lensExtensionId)) {

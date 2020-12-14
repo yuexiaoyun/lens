@@ -1,4 +1,6 @@
 import mockFs from "mock-fs";
+import { Workspace } from "../../../common/workspace-store";
+import { WorkspaceStoreMain } from "../../stores";
 
 jest.mock("electron", () => {
   return {
@@ -14,15 +16,13 @@ jest.mock("electron", () => {
   };
 });
 
-import { Workspace, WorkspaceStore } from "../workspace-store";
-
 describe("workspace store tests", () => {
   describe("for an empty config", () => {
     beforeEach(async () => {
-      WorkspaceStore.resetInstance();
+      WorkspaceStoreMain.resetInstance();
       mockFs({ tmp: { "lens-workspace-store.json": "{}" } });
 
-      await WorkspaceStore.getInstance<WorkspaceStore>().load();
+      await WorkspaceStoreMain.getInstance<WorkspaceStoreMain>().load();
     });
 
     afterEach(() => {
@@ -30,20 +30,20 @@ describe("workspace store tests", () => {
     });
 
     it("default workspace should always exist", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       expect(ws.workspaces.size).toBe(1);
-      expect(ws.getById(WorkspaceStore.defaultId)).not.toBe(null);
+      expect(ws.getById(WorkspaceStoreMain.defaultId)).not.toBe(null);
     });
 
     it("cannot remove the default workspace", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
-      expect(() => ws.removeWorkspaceById(WorkspaceStore.defaultId)).toThrowError("Cannot remove");
+      expect(() => ws.removeWorkspaceById(WorkspaceStoreMain.defaultId)).toThrowError("Cannot remove");
     });
 
     it("can update workspace description", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
       const workspace = ws.addWorkspace(new Workspace({
         id: "foobar",
         name: "foobar",
@@ -56,7 +56,7 @@ describe("workspace store tests", () => {
     });
 
     it("can add workspaces", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "123",
@@ -70,13 +70,13 @@ describe("workspace store tests", () => {
     });
 
     it("cannot set a non-existent workspace to be active", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       expect(() => ws.setActive("abc")).toThrow("doesn't exist");
     });
 
     it("can set a existent workspace to be active", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "abc",
@@ -87,7 +87,7 @@ describe("workspace store tests", () => {
     });
 
     it("can remove a workspace", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "123",
@@ -103,7 +103,7 @@ describe("workspace store tests", () => {
     });
 
     it("cannot create workspace with existent name", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "someid",
@@ -114,7 +114,7 @@ describe("workspace store tests", () => {
     });
 
     it("cannot create workspace with empty name", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "random",
@@ -125,7 +125,7 @@ describe("workspace store tests", () => {
     });
 
     it("cannot create workspace with ' ' name", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "random",
@@ -136,7 +136,7 @@ describe("workspace store tests", () => {
     });
 
     it("trim workspace name", () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       ws.addWorkspace(new Workspace({
         id: "random",
@@ -149,7 +149,7 @@ describe("workspace store tests", () => {
 
   describe("for a non-empty config", () => {
     beforeEach(async () => {
-      WorkspaceStore.resetInstance();
+      WorkspaceStoreMain.resetInstance();
       mockFs({
         tmp: {
           "lens-workspace-store.json": JSON.stringify({
@@ -165,7 +165,7 @@ describe("workspace store tests", () => {
         }
       });
 
-      await WorkspaceStore.getInstance<WorkspaceStore>().load();
+      await WorkspaceStoreMain.getInstance<WorkspaceStoreMain>().load();
     });
 
     afterEach(() => {
@@ -173,7 +173,7 @@ describe("workspace store tests", () => {
     });
 
     it("doesn't revert to default workspace", async () => {
-      const ws = WorkspaceStore.getInstance<WorkspaceStore>();
+      const ws = WorkspaceStoreMain.getInstance<WorkspaceStoreMain>();
 
       expect(ws.currentWorkspaceId).toBe("abc");
     });

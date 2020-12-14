@@ -9,9 +9,9 @@ import { workloadURL, workloadStores } from "../+workloads";
 import { namespaceStore } from "../+namespaces/namespace.store";
 import { PageFiltersList } from "../item-object-list/page-filters-list";
 import { NamespaceSelectFilter } from "../+namespaces/namespace-select";
-import { isAllowedResource, KubeResource } from "../../../common/rbac";
-import { ResourceNames } from "../../../renderer/utils/rbac";
+import { isAllowedResource, ResourceNames } from "../../utils/rbac";
 import { autobind } from "../../utils";
+import { KubeResource } from "../../../common/rbac";
 
 const resources: KubeResource[] = [
   "pods",

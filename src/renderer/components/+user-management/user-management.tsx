@@ -9,7 +9,7 @@ import { ServiceAccounts } from "../+user-management-service-accounts";
 import { roleBindingsRoute, roleBindingsURL, rolesRoute, rolesURL, serviceAccountsRoute, serviceAccountsURL } from "./user-management.route";
 import { namespaceStore } from "../+namespaces/namespace.store";
 import { PodSecurityPolicies, podSecurityPoliciesRoute, podSecurityPoliciesURL } from "../+pod-security-policies";
-import { isAllowedResource } from "../../../common/rbac";
+import { isAllowedResource } from "../../utils/rbac";
 
 @observer
 export class UserManagement extends React.Component {
