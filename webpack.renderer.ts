@@ -209,5 +209,7 @@ export function webpackLensRenderer({ showVars = true } = {}): webpack.Configura
       isDevelopment && new ReactRefreshWebpackPlugin(),
 
     ].filter(Boolean),
+    // only output when errors or new compilation happen
+    stats: "minimal"
   };
 }
