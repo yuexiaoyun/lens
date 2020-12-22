@@ -15,11 +15,11 @@ msgstr ""
 
 #: src/renderer/components/+workspaces/clusters-menu.tsx:38
 #~ msgid "'Disconnect'"
-#~ msgstr "'Disconnect'"
+#~ msgstr "'断开连接'"
 
 #: src/renderer/components/+workspaces/clusters-menu.tsx:31
 #~ msgid "'Settings'"
-#~ msgstr "'Settings'"
+#~ msgstr "'设置'"
 
 #: src/renderer/components/+config-autoscalers/hpa-details.tsx:28
 msgid "(as a percentage of request)"
@@ -43,19 +43,19 @@ msgstr "(empty) (Allowing the specific traffic to all pods in this namespace)"
 
 #: src/renderer/components/item-object-list/item-list-layout.tsx:224
 msgid "<0>Filtered</0>: {itemsCount} / {allItemsCount}"
-msgstr "<0>Filtered</0>: {itemsCount} / {allItemsCount}"
+msgstr "<0>过滤</0>: {itemsCount} / {allItemsCount}"
 
 #: src/renderer/components/+extensions/extensions.tsx:408
 msgid "<0>Pro-Tip</0>: you can also drag-n-drop tarball-file to this area"
-msgstr "<0>Pro-Tip</0>: you can also drag-n-drop tarball-file to this area"
+msgstr ""
 
 #: src/renderer/browser-check.tsx:11
 #~ msgid "<0>Your browser does not support all Lens features. </0> Please consider using another browser."
-#~ msgstr "<0>Your browser does not support all Lens features. </0> Please consider using another browser."
+#~ msgstr "<0>您的浏览器不支持Lens的所有功能。. </0> 请考虑使用其他浏览器."
 
 #: src/renderer/components/dock/create-resource.tsx:58
 msgid "<0>{0}</0> successfully created"
-msgstr "<0>{0}</0> successfully created"
+msgstr "<0>{0}</0> 已成功创建"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:176
 #~ msgid "A HTTP proxy server URL (format: http://<address>:<port>)"
@@ -71,73 +71,73 @@ msgstr "A single workspaces contains a list of clusters and their full configura
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:80
 msgid "API Group"
-msgstr "API Group"
+msgstr "API组"
 
 #: src/renderer/components/layout/sidebar.tsx:134
 msgid "Access Control"
-msgstr "Access Control"
+msgstr "权限控制"
 
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:50
 #: src/renderer/components/+storage-volumes/volume-details.tsx:37
 msgid "Access Modes"
-msgstr "Access Modes"
+msgstr "权限模式"
 
 #: src/renderer/components/+user-management-service-accounts/create-service-account-dialog.tsx:77
 msgid "Account Name"
-msgstr "Account Name"
+msgstr "账户名称"
 
 #: src/renderer/components/+workloads-cronjobs/cronjob-details.tsx:50
 #: src/renderer/components/+workloads-cronjobs/cronjobs.tsx:48
 msgid "Active"
-msgstr "Active"
+msgstr "存活"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:129
 msgid "Add"
-msgstr "Add"
+msgstr ""
 
 #: src/renderer/components/cluster-manager/clusters-menu.tsx:134
 msgid "Add Cluster"
-msgstr "Add Cluster"
+msgstr "添加群集"
 
 #: src/renderer/components/+preferences/preferences.tsx:136
 msgid "Add Custom Helm Repo"
-msgstr "Add Custom Helm Repo"
+msgstr ""
 
 #: src/renderer/components/+namespaces/namespaces.tsx:42
 msgid "Add Namespace"
-msgstr "Add Namespace"
+msgstr "添加命名空间"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:209
 msgid "Add RoleBinding"
-msgstr "Add RoleBinding"
+msgstr "添加角色绑定"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:153
 msgid "Add Workspace"
-msgstr "Add Workspace"
+msgstr "添加工作区"
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:109
 msgid "Add bindings to {name}"
-msgstr "Add bindings to {name}"
+msgstr "添加绑定到 {name}"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:300
 msgid "Add cluster"
-msgstr "Add cluster"
+msgstr "添加群集"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:327
 #~ msgid "Add cluster(s)"
-#~ msgstr "Add cluster(s)"
+#~ msgstr "添加群集"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:300
 msgid "Add clusters"
-msgstr "Add clusters"
+msgstr "添加群集"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:126
 msgid "Add custom Helm Repo"
-msgstr "Add custom Helm Repo"
+msgstr ""
 
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:125
 msgid "Add field"
-msgstr "Add field"
+msgstr "添加字段"
 
 #: src/renderer/components/+preferences/preferences.tsx:123
 #~ msgid "Added repos"
@@ -203,7 +203,7 @@ msgstr "Affinities"
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:46
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:48
 msgid "Age"
-msgstr "Age"
+msgstr "存活时间"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:75
 msgid "All clusters within workspace will be cleared as well"
@@ -215,15 +215,15 @@ msgstr "All clusters within workspace will be cleared as well"
 
 #: src/renderer/components/+custom-resources/crd-list.tsx:53
 msgid "All groups"
-msgstr "All groups"
+msgstr "所有组"
 
 #: src/renderer/components/dock/pod-logs.tsx:37
 #~ msgid "All logs"
-#~ msgstr "All logs"
+#~ msgstr "所有日志"
 
 #: src/renderer/components/+namespaces/namespace-select.tsx:95
 msgid "All namespaces"
-msgstr "All namespaces"
+msgstr "所有命名空间"
 
 #: src/renderer/components/+nodes/node-details.tsx:76
 msgid "Allocatable"
@@ -272,16 +272,16 @@ msgstr "Allowed Unsafe Sysctls"
 #: src/renderer/components/+nodes/node-details.tsx:101
 #: src/renderer/components/kube-object/kube-object-meta.tsx:37
 msgid "Annotations"
-msgstr "Annotations"
+msgstr "注解"
 
 #: src/renderer/components/+user-management-roles/role-details.tsx:36
 msgid "Api Groups"
-msgstr "Api Groups"
+msgstr "Api组"
 
 #: src/renderer/components/+apps-helm-charts/helm-charts.tsx:67
 #: src/renderer/components/+apps-releases/releases.tsx:92
 msgid "App Version"
-msgstr "App Version"
+msgstr "应用版本"
 
 #: src/renderer/components/error-boundary/error-boundary.tsx:36
 msgid "App crash at <0>{pageUrl}</0>"
@@ -289,11 +289,11 @@ msgstr "App crash at <0>{pageUrl}</0>"
 
 #: src/renderer/components/dock/edit-resource.tsx:87
 msgid "Applying.."
-msgstr "Applying.."
+msgstr "应用中.."
 
 #: src/renderer/components/layout/sidebar.tsx:133
 msgid "Apps"
-msgstr "Apps"
+msgstr "应用"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:72
 msgid "Are you sure you want remove workspace <0>{0}</0>?"
@@ -301,7 +301,7 @@ msgstr "Are you sure you want remove workspace <0>{0}</0>?"
 
 #: src/renderer/components/+nodes/node-menu.tsx:41
 #~ msgid "Are you sure you want to drain <0>{nodeName}</0>?"
-#~ msgstr "Are you sure you want to drain <0>{nodeName}</0>?"
+#~ msgstr "确定要驱逐 <0>{nodeName}</0>?"
 
 #: src/renderer/components/+workloads-deployments/deployments.tsx:113
 msgid "Are you sure you want to restart deployment <0>{0}</0>?"
@@ -330,24 +330,24 @@ msgstr "Automatically start Lens on login"
 #: src/renderer/components/error-boundary/error-boundary.tsx:53
 #: src/renderer/components/wizard/wizard.tsx:130
 msgid "Back"
-msgstr "Back"
+msgstr "返回"
 
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:43
 msgid "Backends"
-msgstr "Backends"
+msgstr "后端地址"
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:93
 msgid "Binding"
-msgstr "Binding"
+msgstr "绑定"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:194
 msgid "Binding targets"
-msgstr "Binding targets"
+msgstr "绑定目标"
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:89
 #: src/renderer/components/+user-management-roles-bindings/role-bindings.tsx:35
 msgid "Bindings"
-msgstr "Bindings"
+msgstr "绑定"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:239
 #: src/renderer/components/+extensions/extensions.tsx:404
@@ -357,7 +357,7 @@ msgstr "Browse"
 
 #: src/renderer/components/error-boundary/error-boundary.tsx:37
 #~ msgid "Build version"
-#~ msgstr "Build version"
+#~ msgstr "构建版本"
 
 #: src/renderer/components/+workloads-pods/container-charts.tsx:75
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:100
@@ -409,17 +409,17 @@ msgstr "CPU"
 
 #: src/renderer/components/+nodes/node-charts.tsx:42
 msgid "CPU capacity"
-msgstr "CPU capacity"
+msgstr "CPU容量"
 
 #: src/renderer/components/+nodes/node-charts.tsx:28
 #: src/renderer/components/+workloads-pods/container-charts.tsx:27
 msgid "CPU cores usage"
-msgstr "CPU cores usage"
+msgstr "CPU核心占用"
 
 #: src/renderer/components/+workloads-pods/container-charts.tsx:41
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:49
 msgid "CPU limits"
-msgstr "CPU limits"
+msgstr "CPU约束"
 
 #: src/renderer/components/+nodes/node-charts.tsx:35
 #: src/renderer/components/+workloads-pods/container-charts.tsx:34
@@ -439,7 +439,7 @@ msgstr "Ca file"
 #: src/renderer/components/dock/info-panel.tsx:86
 #: src/renderer/components/wizard/wizard.tsx:130
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:73
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:116
@@ -452,7 +452,7 @@ msgstr "Cancel"
 #: src/renderer/components/+storage-volumes/volume-details.tsx:29
 #: src/renderer/components/+storage-volumes/volumes.tsx:41
 msgid "Capacity"
-msgstr "Capacity"
+msgstr "容量"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:118
 msgid "Cerificate file"
@@ -464,7 +464,7 @@ msgstr "Certificate Trust"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificates.tsx:59
 #~ msgid "Certificates"
-#~ msgstr "Certificates"
+#~ msgstr "证书"
 
 #: src/renderer/components/+apps-releases/release-details.tsx:173
 #: src/renderer/components/+apps-releases/releases.tsx:89
@@ -478,15 +478,15 @@ msgstr "Chart Release <0>{0}</0> successfully created."
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:119
 msgid "Chart Repository Credentials"
-msgstr "Chart Repository Credentials"
+msgstr ""
 
 #: src/renderer/components/+apps-helm-charts/helm-chart-details.tsx:121
 msgid "Chart: {0}"
-msgstr "Chart: {0}"
+msgstr "Charts: {0}"
 
 #: src/renderer/components/+apps/apps.tsx:20
 msgid "Charts"
-msgstr "Charts"
+msgstr "Helm Charts"
 
 #: renderer/components/+apps-releases/releases.tsx:123
 #~ msgid "Checking update"
@@ -515,16 +515,16 @@ msgstr "Claim Name"
 
 #: src/renderer/components/dock/pod-log-search.tsx:44
 msgid "Clear"
-msgstr "Clear"
+msgstr ""
 
 #: src/renderer/components/dialog/logs-dialog.tsx:39
 #: src/renderer/components/kubeconfig-dialog/kubeconfig-dialog.tsx:93
 msgid "Close"
-msgstr "Close"
+msgstr "关闭"
 
 #: src/renderer/components/dock/dock-tab.tsx:40
 msgid "Close (Ctrl+W)"
-msgstr "Close (Ctrl+W)"
+msgstr "关闭 (Ctrl+W)"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:121
 #~ msgid "Cloud API Token Secret"
@@ -533,12 +533,12 @@ msgstr "Close (Ctrl+W)"
 #: src/renderer/components/+namespaces/namespace-select.tsx:43
 #: src/renderer/components/layout/sidebar.tsx:125
 msgid "Cluster"
-msgstr "Cluster"
+msgstr "集群"
 
 #: src/renderer/components/+network-services/service-details.tsx:51
 #: src/renderer/components/+network-services/services.tsx:46
 msgid "Cluster IP"
-msgstr "Cluster IP"
+msgstr "集群IP"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuers.tsx:40
 #~ msgid "Cluster Issuers"
@@ -546,11 +546,11 @@ msgstr "Cluster IP"
 
 #: src/renderer/components/+preferences/preferences.tsx:122
 msgid "Color Theme"
-msgstr "Color Theme"
+msgstr "颜色主题"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:103
 msgid "Command"
-msgstr "Command"
+msgstr "命令"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:47
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificates.tsx:62
@@ -564,7 +564,7 @@ msgstr "Compact view"
 #: src/renderer/components/+workloads-jobs/job-details.tsx:79
 #: src/renderer/components/+workloads-jobs/jobs.tsx:36
 msgid "Completions"
-msgstr "Completions"
+msgstr "成功数额"
 
 #: src/renderer/components/error-boundary/error-boundary.tsx:45
 msgid "Component stack"
@@ -572,7 +572,7 @@ msgstr "Component stack"
 
 #: src/renderer/components/+workloads-cronjobs/cronjob-details.tsx:71
 msgid "Condition"
-msgstr "Condition"
+msgstr "状态"
 
 #: src/renderer/components/+custom-resources/crd-details.tsx:51
 #: src/renderer/components/+nodes/node-details.tsx:106
@@ -583,11 +583,11 @@ msgstr "Condition"
 #: src/renderer/components/+workloads-jobs/jobs.tsx:39
 #: src/renderer/components/+workloads-pods/pod-details.tsx:99
 msgid "Conditions"
-msgstr "Conditions"
+msgstr "状态"
 
 #: src/renderer/components/+config-maps/config-maps.tsx:31
 msgid "Config Maps"
-msgstr "Config Maps"
+msgstr "配置文件"
 
 #: src/renderer/components/kubeconfig-dialog/kubeconfig-dialog.tsx:54
 msgid "Config copied to clipboard"
@@ -595,15 +595,15 @@ msgstr "Config copied to clipboard"
 
 #: src/renderer/components/+config-maps/config-map-details.tsx:40
 msgid "ConfigMap <0>{0}</0> successfully updated."
-msgstr "ConfigMap <0>{0}</0> successfully updated."
+msgstr "配置文件 <0>{0}</0> 更新成功."
 
 #: src/renderer/components/+config/config.tsx:25
 msgid "ConfigMaps"
-msgstr "ConfigMaps"
+msgstr "配置文件"
 
 #: src/renderer/components/layout/sidebar.tsx:128
 msgid "Configuration"
-msgstr "Configuration"
+msgstr "配置资源集"
 
 #: src/renderer/components/+network-services/service-details.tsx:49
 msgid "Connection"
@@ -623,7 +623,7 @@ msgstr "Container CPU requests"
 
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:73
 msgid "Container memory limits"
-msgstr "Container memory limits"
+msgstr "容器内存限制"
 
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:66
 msgid "Container memory requests"
@@ -631,17 +631,17 @@ msgstr "Container memory requests"
 
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:59
 msgid "Container memory usage"
-msgstr "Container memory usage"
+msgstr "容器内存使用"
 
 #: src/renderer/components/+nodes/node-details.tsx:94
 msgid "Container runtime"
-msgstr "Container runtime"
+msgstr "容器运行时"
 
 #: src/renderer/components/+workloads-pods/pod-details.tsx:121
 #: src/renderer/components/+workloads-pods/pods.tsx:75
 #: src/renderer/components/dock/pod-log-controls.tsx:43
 msgid "Containers"
-msgstr "Containers"
+msgstr "容器"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:184
 msgid "Context"
@@ -692,59 +692,59 @@ msgstr "Count"
 #: src/renderer/components/+user-management-service-accounts/create-service-account-dialog.tsx:76
 #: src/renderer/components/dock/create-resource.tsx:74
 msgid "Create"
-msgstr "Create"
+msgstr "创建"
 
 #: src/renderer/components/+namespaces/add-namespace-dialog.tsx:69
 msgid "Create Namespace"
-msgstr "Create Namespace"
+msgstr "创建命名空间"
 
 #: src/renderer/components/+config-resource-quotas/add-quota-dialog.tsx:121
 msgid "Create ResourceQuota"
-msgstr "Create ResourceQuota"
+msgstr "创建资源配额"
 
 #: src/renderer/components/+user-management-roles/add-role-dialog.tsx:70
 msgid "Create Role"
-msgstr "Create Role"
+msgstr "创建角色"
 
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:142
 msgid "Create Secret"
-msgstr "Create Secret"
+msgstr "创建机密"
 
 #: src/renderer/components/+user-management-service-accounts/create-service-account-dialog.tsx:73
 msgid "Create Service Account"
-msgstr "Create Service Account"
+msgstr "创建服务账号"
 
 #: src/renderer/components/+config-resource-quotas/resource-quotas.tsx:43
 msgid "Create new ResourceQuota"
-msgstr "Create new ResourceQuota"
+msgstr "创建资源配额"
 
 #: src/renderer/components/+user-management-roles/roles.tsx:42
 msgid "Create new Role"
-msgstr "Create new Role"
+msgstr "创建角色"
 
 #: src/renderer/components/+user-management-roles-bindings/role-bindings.tsx:46
 msgid "Create new RoleBinding"
-msgstr "Create new RoleBinding"
+msgstr "创建角色绑定"
 
 #: src/renderer/components/+config-secrets/secrets.tsx:56
 msgid "Create new Secret"
-msgstr "Create new Secret"
+msgstr "创建新的机密"
 
 #: src/renderer/components/+user-management-service-accounts/service-accounts.tsx:48
 msgid "Create new Service Account"
-msgstr "Create new Service Account"
+msgstr "创建服务账号"
 
 #: src/renderer/components/dock/dock.tsx:101
 msgid "Create resource"
-msgstr "Create resource"
+msgstr "创建资源"
 
 #: src/renderer/components/kube-object/kube-object-meta.tsx:18
 msgid "Created"
-msgstr "Created"
+msgstr "已创建"
 
 #: src/renderer/components/+user-management-service-accounts/service-accounts-secret.tsx:37
 msgid "Created at"
-msgstr "Created at"
+msgstr "创建于"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:132
 #~ msgid "Credentials Ref"
@@ -752,11 +752,11 @@ msgstr "Created at"
 
 #: src/renderer/components/+workloads-cronjobs/cronjobs.tsx:42
 msgid "Cron Jobs"
-msgstr "Cron Jobs"
+msgstr "定时任务"
 
 #: src/renderer/components/+workloads/workloads.tsx:85
 msgid "CronJobs"
-msgstr "CronJobs"
+msgstr "定时任务"
 
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:44
 msgid "Current"
@@ -788,7 +788,7 @@ msgstr "Currently applied filters:"
 #: src/renderer/components/+custom-resources/crd-list.tsx:52
 #: src/renderer/components/layout/sidebar.tsx:135
 msgid "Custom Resources"
-msgstr "Custom Resources"
+msgstr "自定义资源"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:155
 #~ msgid "Custom.."
@@ -796,32 +796,32 @@ msgstr "Custom Resources"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:95
 #~ msgid "DNS Provider"
-#~ msgstr "DNS Provider"
+#~ msgstr "DNS供应商"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:50
 #~ msgid "DNS names"
-#~ msgstr "DNS names"
+#~ msgstr "DNS名称"
 
 #: src/renderer/components/+workloads-daemonsets/daemonsets.tsx:41
 msgid "Daemon Sets"
-msgstr "Daemon Sets"
+msgstr "守护进程集"
 
 #: src/renderer/components/+workloads/workloads.tsx:53
 msgid "DaemonSets"
-msgstr "DaemonSets"
+msgstr "守护进程集"
 
 #: src/renderer/theme.store.ts:32
 #~ msgid "Dark"
-#~ msgstr "Dark"
+#~ msgstr "深色"
 
 #: src/renderer/components/+config-maps/config-map-details.tsx:68
 #: src/renderer/components/+config-secrets/secret-details.tsx:77
 msgid "Data"
-msgstr "Data"
+msgstr "数据"
 
 #: src/renderer/components/+storage-classes/storage-classes.tsx:36
 msgid "Default"
-msgstr "Default"
+msgstr "默认"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:82
 msgid "Default Add Capabilities"
@@ -829,11 +829,11 @@ msgstr "Default Add Capabilities"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:134
 msgid "Default Runtime Class Name"
-msgstr "Default Runtime Class Name"
+msgstr "默认运行时名称"
 
 #: src/renderer/components/+preferences/kubectl-binaries.tsx:30
 #~ msgid "Default:"
-#~ msgstr "Default:"
+#~ msgstr "默认:"
 
 #: src/renderer/components/+custom-resources/custom-resources.tsx:20
 msgid "Definitions"
@@ -842,7 +842,7 @@ msgstr "Definitions"
 #: src/renderer/components/+workspaces/workspaces.tsx:141
 #: src/renderer/components/menu/menu-actions.tsx:84
 msgid "Delete"
-msgstr "Delete"
+msgstr "删除"
 
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:45
 #~ msgid "Deploy Revisions"
@@ -851,12 +851,12 @@ msgstr "Delete"
 #: src/renderer/components/+workloads/workloads.tsx:45
 #: src/renderer/components/+workloads-deployments/deployments.tsx:67
 msgid "Deployments"
-msgstr "Deployments"
+msgstr "部署"
 
 #: src/renderer/components/+apps-helm-charts/helm-charts.tsx:65
 #: src/renderer/components/+workspaces/workspaces.tsx:146
 msgid "Description"
-msgstr "Description"
+msgstr "描述"
 
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:43
 msgid "Desired"
@@ -881,11 +881,11 @@ msgstr "Disconnect"
 #: src/renderer/components/+nodes/nodes.tsx:121
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:43
 msgid "Disk"
-msgstr "Disk"
+msgstr "磁盘"
 
 #: src/renderer/components/+nodes/nodes.tsx:77
 msgid "Disk:"
-msgstr "Disk:"
+msgstr "磁盘:"
 
 #: src/renderer/components/+preferences/preferences.tsx:160
 msgid "Does not affect cluster communications!"
@@ -893,7 +893,7 @@ msgstr "Does not affect cluster communications!"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:89
 #~ msgid "Domains"
-#~ msgstr "Domains"
+#~ msgstr "域名"
 
 #: src/renderer/components/+preferences/preferences.tsx:129
 #~ msgid "Download Mirror"
@@ -930,21 +930,21 @@ msgstr "Download mirror for kubectl"
 
 #: src/renderer/components/+storage-volumes/volume-details.tsx:59
 msgid "Driver"
-msgstr "Driver"
+msgstr "驱动"
 
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:88
 msgid "Duration"
-msgstr "Duration"
+msgstr "持续时间"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:58
 #~ msgid "E-mail"
-#~ msgstr "E-mail"
+#~ msgstr "邮箱"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:140
 #: src/renderer/components/menu/menu-actions.tsx:80
 #: src/renderer/components/menu/menu-actions.tsx:81
 msgid "Edit"
-msgstr "Edit"
+msgstr "编辑"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:208
 msgid "Edit RoleBinding <0>{roleBindingName}</0>"
@@ -961,26 +961,26 @@ msgstr "Egress"
 
 #: src/renderer/components/+network-services/service-details.tsx:68
 msgid "Endpoint"
-msgstr "Endpoint"
+msgstr "终端地址"
 
 #: src/renderer/components/+network/network.tsx:33
 #: src/renderer/components/+network-endpoints/endpoints.tsx:28
 #: src/renderer/components/+network-endpoints/endpoints.tsx:32
 #: src/renderer/components/+network-services/service-details-endpoint.tsx:27
 msgid "Endpoints"
-msgstr "Endpoints"
+msgstr "终端地址"
 
 #: src/renderer/components/+user-management-service-accounts/create-service-account-dialog.tsx:78
 msgid "Enter a name"
-msgstr "Enter a name"
+msgstr "请输入名称"
 
 #: src/renderer/components/+workloads-pods/pod-container-env.tsx:80
 msgid "Environment"
-msgstr "Environment"
+msgstr "环境变量"
 
 #: src/renderer/components/error-boundary/error-boundary.tsx:49
 msgid "Error stack"
-msgstr "Error stack"
+msgstr "错误的stack"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:94
 #: src/renderer/components/+add-cluster/add-cluster.tsx:135
@@ -992,11 +992,11 @@ msgstr "Error while adding cluster(s): {0}"
 #: src/renderer/components/+events/kube-event-details.tsx:39
 #: src/renderer/components/layout/sidebar.tsx:132
 msgid "Events"
-msgstr "Events"
+msgstr "事件"
 
 #: src/renderer/components/+cluster/cluster-issues.tsx:90
 msgid "Everything is fine in the Cluster"
-msgstr "Everything is fine in the Cluster"
+msgstr "集群一切正常"
 
 #: client/components/+user-management-roles/roles.tsx:39
 #: client/components/+user-management-roles-bindings/role-bindings.tsx:41
@@ -1013,15 +1013,15 @@ msgstr "Exit full size mode"
 
 #: src/renderer/components/+network-services/services.tsx:48
 msgid "External IP"
-msgstr "External IP"
+msgstr "外部IP"
 
 #: src/renderer/components/+network-services/service-details.tsx:55
 msgid "External IPs"
-msgstr "External IPs"
+msgstr "外部IPs"
 
 #: src/renderer/components/dock/pod-logs.store.ts:56
 msgid "Failed to load logs: {0}"
-msgstr "Failed to load logs: {0}"
+msgstr "读取日志失败: {0}"
 
 #: src/renderer/components/+events/event-details.tsx:57
 msgid "Field Path"
@@ -1030,11 +1030,11 @@ msgstr "Field Path"
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:14
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:47
 msgid "Filesystem"
-msgstr "Filesystem"
+msgstr "文件系统"
 
 #: src/renderer/components/item-object-list/page-filters-select.tsx:84
 msgid "Filters ({0}/{1})"
-msgstr "Filters ({0}/{1})"
+msgstr "过滤器 ({0}/{1})"
 
 #: src/renderer/components/kube-object/kube-object-meta.tsx:38
 msgid "Finalizers"
@@ -1092,7 +1092,7 @@ msgstr "Groups"
 
 #: src/renderer/components/+config/config.tsx:49
 msgid "HPA"
-msgstr "HPA"
+msgstr "水平资源伸缩"
 
 #: src/renderer/components/+preferences/preferences.tsx:125
 msgid "HTTP Proxy"
@@ -1138,7 +1138,7 @@ msgstr "Helm repository <0>{0}</0> has added"
 #: src/renderer/components/dock/pod-log-controls.tsx:72
 #: src/renderer/components/drawer/drawer-param-toggler.tsx:19
 msgid "Hide"
-msgstr "Hide"
+msgstr "隐藏"
 
 #: src/renderer/components/+workloads-deployments/deployment-scale-dialog.tsx:126
 #: src/renderer/components/+workloads-replicasets/replicaset-scale-dialog.tsx:126
@@ -1179,7 +1179,7 @@ msgstr "Host: {0}"
 #: src/renderer/components/+network-endpoints/endpoint-subset-list.tsx:76
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:65
 msgid "Hostname"
-msgstr "Hostname"
+msgstr "主机名"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:92
 #~ msgid "Http01"
@@ -1191,40 +1191,40 @@ msgstr "IP"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:53
 #~ msgid "IP addresses"
-#~ msgstr "IP addresses"
+#~ msgstr "IP地址"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:65
 msgid "Image"
-msgstr "Image"
+msgstr "镜像"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:69
 msgid "ImagePullPolicy"
-msgstr "ImagePullPolicy"
+msgstr "镜像拉取策略"
 
 #: src/renderer/components/+user-management-service-accounts/service-accounts-details.tsx:108
 msgid "ImagePullSecrets"
-msgstr "ImagePullSecrets"
+msgstr "镜像拉取密钥"
 
 #: src/renderer/components/+workloads-daemonsets/daemonset-details.tsx:64
 #: src/renderer/components/+workloads-jobs/job-details.tsx:63
 #: src/renderer/components/+workloads-replicasets/replicaset-details.tsx:76
 #: src/renderer/components/+workloads-statefulsets/statefulset-details.tsx:63
 msgid "Images"
-msgstr "Images"
+msgstr "镜像"
 
 #: src/renderer/components/+network-policies/network-policy-details.tsx:91
 msgid "Ingress"
-msgstr "Ingress"
+msgstr "应用路由"
 
 #: src/renderer/components/+network/network.tsx:41
 #: src/renderer/components/+network-ingresses/ingresses.tsx:29
 msgid "Ingresses"
-msgstr "Ingresses"
+msgstr "应用路由"
 
 #: src/renderer/components/+workloads-pods/pod-details.tsx:117
 #: src/renderer/components/dock/pod-log-controls.tsx:49
 msgid "Init Containers"
-msgstr "Init Containers"
+msgstr "初始化容器"
 
 #: src/renderer/components/+apps-helm-charts/helm-chart-details.tsx:80
 #: src/renderer/components/dock/install-chart.tsx:127
@@ -1233,7 +1233,7 @@ msgstr "Install"
 
 #: src/renderer/components/+extensions/extensions.tsx:402
 msgid "Install Extension:"
-msgstr "Install Extension:"
+msgstr ""
 
 #: src/renderer/components/dock/install-chart.tsx:108
 msgid "Installation complete!"
@@ -1245,7 +1245,7 @@ msgstr "Installing..."
 
 #: src/renderer/components/+extensions/extensions.tsx:423
 msgid "Invalid URL or absolute path"
-msgstr "Invalid URL or absolute path"
+msgstr ""
 
 #: src/renderer/components/input/input_validators.ts:57
 msgid "Invalid account ID"
@@ -1288,7 +1288,7 @@ msgstr "Job name"
 #: src/renderer/components/+workloads-cronjobs/cronjob-details.tsx:61
 #: src/renderer/components/+workloads-jobs/jobs.tsx:33
 msgid "Jobs"
-msgstr "Jobs"
+msgstr "任务"
 
 #: src/renderer/components/dock/pod-log-list.tsx:186
 msgid "Jump to bottom"
@@ -1296,16 +1296,16 @@ msgstr "Jump to bottom"
 
 #: src/renderer/components/+nodes/node-details.tsx:91
 msgid "Kernel version"
-msgstr "Kernel version"
+msgstr "内核版本"
 
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:76
 #: src/renderer/components/+workloads-pods/pod-details-tolerations.tsx:16
 msgid "Key"
-msgstr "Key"
+msgstr "键值"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:68
 #~ msgid "Key Algorithm"
-#~ msgstr "Key Algorithm"
+#~ msgstr "键值算法"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:65
 #~ msgid "Key Size"
@@ -1318,11 +1318,11 @@ msgstr "Key file"
 #: src/renderer/components/+config-maps/config-maps.tsx:35
 #: src/renderer/components/+config-secrets/secrets.tsx:43
 msgid "Keys"
-msgstr "Keys"
+msgstr "键值"
 
 #: src/renderer/components/+apps-helm-charts/helm-chart-details.tsx:91
 msgid "Keywords"
-msgstr "Keywords"
+msgstr "关键字"
 
 #: src/renderer/components/+events/event-details.tsx:56
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:78
@@ -1351,11 +1351,11 @@ msgstr "Kubelet version"
 #: src/renderer/components/+nodes/node-details.tsx:100
 #: src/renderer/components/kube-object/kube-object-meta.tsx:36
 msgid "Labels"
-msgstr "Labels"
+msgstr "标签"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:76
 #~ msgid "Last Failure Time"
-#~ msgstr "Last Failure Time"
+#~ msgstr "上一次失败时间"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:62
 msgid "Last Status"
@@ -1387,7 +1387,7 @@ msgstr "Level"
 
 #: src/renderer/theme.store.ts:33
 #~ msgid "Light"
-#~ msgstr "Light"
+#~ msgstr "浅色"
 
 #: src/renderer/components/+events/events.tsx:59
 msgid "Limited to {0}"
@@ -1424,7 +1424,7 @@ msgstr "Load-Balancer Ingress Points"
 
 #: src/renderer/components/+network-ingresses/ingresses.tsx:33
 msgid "LoadBalancers"
-msgstr "LoadBalancers"
+msgstr "负载均衡"
 
 #: src/renderer/components/app-init/app-init.tsx:43
 msgid "Loading"
@@ -1433,7 +1433,7 @@ msgstr "Loading"
 #: src/renderer/components/+workloads-pods/pod-menu.tsx:100
 #: src/renderer/components/+workloads-pods/pod-menu.tsx:101
 #~ msgid "Logs"
-#~ msgstr "Logs"
+#~ msgstr "日志"
 
 #: src/renderer/components/dialog/logs-dialog.tsx:27
 msgid "Logs copied to clipboard."
@@ -1445,11 +1445,11 @@ msgstr "Maintainers"
 
 #: src/renderer/components/+cluster/cluster-metric-switchers.tsx:18
 msgid "Master"
-msgstr "Master"
+msgstr "主节点"
 
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:74
 msgid "Match Expressions"
-msgstr "Match Expressions"
+msgstr "匹配标签"
 
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:70
 msgid "Match Labels"
@@ -1458,7 +1458,7 @@ msgstr "Match Labels"
 #: src/renderer/components/+config-autoscalers/hpa-details.tsx:80
 #: src/renderer/components/+config-autoscalers/hpa.tsx:48
 msgid "Max Pods"
-msgstr "Max Pods"
+msgstr "容器单元上限"
 
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets-details.tsx:33
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets.tsx:41
@@ -1485,15 +1485,15 @@ msgstr "Medium"
 #: src/renderer/components/+workloads-pods/pod-details-list.tsx:98
 #: src/renderer/components/resource-metrics/resource-metrics-text.tsx:18
 msgid "Memory"
-msgstr "Memory"
+msgstr "内存"
 
 #: src/renderer/components/+nodes/node-charts.tsx:66
 msgid "Memory capacity"
-msgstr "Memory capacity"
+msgstr "内存容量"
 
 #: src/renderer/components/+workloads-pods/container-charts.tsx:65
 msgid "Memory limits"
-msgstr "Memory limits"
+msgstr "内存限制"
 
 #: src/renderer/components/+nodes/node-charts.tsx:59
 #: src/renderer/components/+workloads-pods/container-charts.tsx:58
@@ -1503,29 +1503,29 @@ msgstr "Memory requests"
 #: src/renderer/components/+nodes/node-charts.tsx:52
 #: src/renderer/components/+workloads-pods/container-charts.tsx:51
 msgid "Memory usage"
-msgstr "Memory usage"
+msgstr "内存使用"
 
 #: src/renderer/components/+nodes/nodes.tsx:66
 msgid "Memory:"
-msgstr "Memory:"
+msgstr "内存:"
 
 #: src/renderer/components/+cluster/cluster-issues.tsx:100
 #: src/renderer/components/+events/event-details.tsx:29
 #: src/renderer/components/+events/events.tsx:62
 msgid "Message"
-msgstr "Message"
+msgstr "信息"
 
 #: src/renderer/components/+config-autoscalers/hpa.tsx:46
 msgid "Metrics"
-msgstr "Metrics"
+msgstr "指标"
 
 #: src/renderer/components/+cluster/cluster-no-metrics.tsx:8
 msgid "Metrics are not available due to missing or invalid Prometheus configuration."
-msgstr "Metrics are not available due to missing or invalid Prometheus configuration."
+msgstr "Prometheus配置异常导致指标不可用."
 
 #: src/renderer/components/resource-metrics/no-metrics.tsx:6
 msgid "Metrics not available at the moment"
-msgstr "Metrics not available at the moment"
+msgstr "指标目前不可用"
 
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets-details.tsx:29
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets.tsx:40
@@ -1535,7 +1535,7 @@ msgstr "Min Available"
 #: src/renderer/components/+config-autoscalers/hpa-details.tsx:76
 #: src/renderer/components/+config-autoscalers/hpa.tsx:47
 msgid "Min Pods"
-msgstr "Min Pods"
+msgstr "容器单元下限"
 
 #: src/renderer/components/dock/dock.tsx:107
 msgid "Minimize"
@@ -1553,15 +1553,15 @@ msgstr "More"
 #: src/renderer/components/+storage-classes/storage-class-details.tsx:37
 #: src/renderer/components/+storage-volumes/volume-details.tsx:33
 msgid "Mount Options"
-msgstr "Mount Options"
+msgstr "挂载选项"
 
 #: src/renderer/components/+user-management-service-accounts/service-accounts-details.tsx:112
 msgid "Mountable secrets"
-msgstr "Mountable secrets"
+msgstr "可挂载机密"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:81
 msgid "Mounts"
-msgstr "Mounts"
+msgstr "挂载"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:36
 #~ msgid "My Workspace"
@@ -1612,15 +1612,15 @@ msgstr "Mounts"
 #: src/renderer/components/dock/edit-resource.tsx:89
 #: src/renderer/components/kube-object/kube-object-meta.tsx:21
 msgid "Name"
-msgstr "Name"
+msgstr "名称"
 
 #: src/renderer/components/dock/install-chart.tsx:124
 msgid "Name (optional)"
-msgstr "Name (optional)"
+msgstr "名称 (可选的)"
 
 #: src/renderer/components/+custom-resources/crd-details.tsx:60
 msgid "Names"
-msgstr "Names"
+msgstr "名称"
 
 #: src/renderer/components/+apps-releases/release-details.tsx:182
 #: src/renderer/components/+apps-releases/releases.tsx:88
@@ -1662,20 +1662,20 @@ msgstr "Names"
 #: src/renderer/components/item-object-list/page-filters-select.tsx:57
 #: src/renderer/components/kube-object/kube-object-meta.tsx:24
 msgid "Namespace"
-msgstr "Namespace"
+msgstr "命名空间"
 
 #: src/renderer/components/+namespaces/namespace-select.tsx:97
 msgid "Namespace: {0}"
-msgstr "Namespace: {0}"
+msgstr "命名空间: {0}"
 
 #: src/renderer/components/+namespaces/namespaces.tsx:29
 #: src/renderer/components/layout/sidebar.tsx:131
 msgid "Namespaces"
-msgstr "Namespaces"
+msgstr "命名空间"
 
 #: src/renderer/components/+namespaces/namespace-select.tsx:99
 msgid "Namespaces: {0}"
-msgstr "Namespaces: {0}"
+msgstr "命名空间: {0}"
 
 #: src/renderer/components/+preferences/preferences.tsx:159
 msgid "Needed with some corporate proxies that do certificate re-writing."
@@ -1685,28 +1685,28 @@ msgstr "Needed with some corporate proxies that do certificate re-writing."
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:13
 #: src/renderer/components/layout/sidebar.tsx:129
 msgid "Network"
-msgstr "Network"
+msgstr "网络"
 
 #: src/renderer/components/+storage-volumes/volume-details.tsx:51
 msgid "Network File System"
-msgstr "Network File System"
+msgstr "网络文件系统"
 
 #: src/renderer/components/+network/network.tsx:49
 #: src/renderer/components/+network-policies/network-policies.tsx:28
 msgid "Network Policies"
-msgstr "Network Policies"
+msgstr "网络策略"
 
 #: src/renderer/components/dock/pod-logs.tsx:171
 #~ msgid "New logs since opening logs tab"
-#~ msgstr "New logs since opening logs tab"
+#~ msgstr "自打开新标签页以来的新日志"
 
 #: src/renderer/components/dock/pod-logs.tsx:178
 #~ msgid "New logs since opening the dialog"
-#~ msgstr "New logs since opening the dialog"
+#~ msgstr "自打开对话框以来的新日志"
 
 #: src/renderer/components/dock/dock.tsx:94
 msgid "New tab"
-msgstr "New tab"
+msgstr "新建标签"
 
 #: renderer/components/+apps-releases/release-details.tsx:192
 #~ msgid "New version available:"
@@ -1732,11 +1732,11 @@ msgstr "Next"
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:99
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:118
 msgid "No"
-msgstr "No"
+msgstr "否"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:159
 msgid "No Nodes Available."
-msgstr "No Nodes Available."
+msgstr "没有可用节点."
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:275
 #~ msgid "No contexts available or they already added"
@@ -1748,27 +1748,27 @@ msgstr "No contexts available or they have been added already"
 
 #: src/renderer/components/item-object-list/page-filters-select.tsx:84
 msgid "No filters available."
-msgstr "No filters available."
+msgstr "没有找到匹配."
 
 #: src/renderer/components/+cluster/cluster-issues.tsx:89
 msgid "No issues found"
-msgstr "No issues found"
+msgstr "没有发现问题"
 
 #: src/renderer/components/item-object-list/item-list-layout.tsx:196
 msgid "No items found."
-msgstr "No items found."
+msgstr "没有找到资源."
 
 #: src/renderer/components/+apps-releases/release-rollback-dialog.tsx:82
 msgid "No revisions to rollback."
-msgstr "No revisions to rollback."
+msgstr "没有版本可供回退."
 
 #: src/renderer/components/+workloads-pods/pod-details.tsx:84
 msgid "Node"
-msgstr "Node"
+msgstr "节点"
 
 #: src/renderer/components/+nodes/node-charts.tsx:100
 msgid "Node Pods capacity"
-msgstr "Node Pods capacity"
+msgstr "节点容器单元容量"
 
 #: src/renderer/components/+workloads-daemonsets/daemonset-details.tsx:60
 #: src/renderer/components/+workloads-daemonsets/daemonsets.tsx:46
@@ -1778,24 +1778,24 @@ msgstr "Node Pods capacity"
 #: src/renderer/components/+workloads-replicasets/replicaset-details.tsx:72
 #: src/renderer/components/+workloads-statefulsets/statefulset-details.tsx:59
 msgid "Node Selector"
-msgstr "Node Selector"
+msgstr "节点选择器"
 
 #: src/renderer/components/+nodes/node-charts.tsx:83
 msgid "Node filesystem size in bytes"
-msgstr "Node filesystem size in bytes"
+msgstr "节点文件系统大小（以字节为单位）"
 
 #: src/renderer/components/+nodes/node-charts.tsx:76
 msgid "Node filesystem usage in bytes"
-msgstr "Node filesystem usage in bytes"
+msgstr "节点文件系统用量（以字节为单位）"
 
 #: src/renderer/components/+nodes/node-menu.tsx:47
 #~ msgid "Node shell"
-#~ msgstr "Node shell"
+#~ msgstr "节点控制台"
 
 #: src/renderer/components/+nodes/nodes.tsx:116
 #: src/renderer/components/layout/sidebar.tsx:126
 msgid "Nodes"
-msgstr "Nodes"
+msgstr "节点"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:72
 #~ msgid "Not After"
@@ -1803,11 +1803,11 @@ msgstr "Nodes"
 
 #: src/renderer/components/+network-endpoints/endpoint-subset-list.tsx:72
 msgid "Not Ready Addresses"
-msgstr "Not Ready Addresses"
+msgstr "地址未就绪"
 
 #: src/renderer/components/+apps-releases/releases.tsx:67
 msgid "Note: StatefulSet Volumes won&apos;t be deleted automatically"
-msgstr "Note: StatefulSet Volumes won&apos;t be deleted automatically"
+msgstr ""
 
 #: src/renderer/components/+apps-releases/releases.tsx:67
 #~ msgid "Note: StatefulSet Volumes won't be deleted automatically"
@@ -1819,15 +1819,15 @@ msgstr "Notes"
 
 #: src/renderer/components/+nodes/node-charts.tsx:93
 msgid "Number of running Pods"
-msgstr "Number of running Pods"
+msgstr "正在运行的Pods数量"
 
 #: src/renderer/components/+nodes/node-details.tsx:85
 msgid "OS"
-msgstr "OS"
+msgstr "操作系统"
 
 #: src/renderer/components/+nodes/node-details.tsx:88
 msgid "OS Image"
-msgstr "OS Image"
+msgstr "操作系统镜像"
 
 #: src/renderer/components/+cluster/cluster-issues.tsx:101
 msgid "Object"
@@ -1843,16 +1843,16 @@ msgstr "Ok, got it!"
 
 #: src/renderer/components/dock/dock.tsx:107
 msgid "Open"
-msgstr "Open"
+msgstr "打开"
 
 #: src/renderer/components/layout/main-layout-header.tsx:10
 msgid "Open cluster settings"
-msgstr "Open cluster settings"
+msgstr ""
 
 #: src/renderer/components/+network-services/service-port-component.tsx:49
 #: src/renderer/components/+workloads-pods/pod-container-port.tsx:51
 msgid "Open in a browser"
-msgstr "Open in a browser"
+msgstr "在浏览器中打开"
 
 #: src/renderer/components/+config-resource-quotas/resource-quota-details.tsx:58
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:77
@@ -1862,16 +1862,16 @@ msgstr "Operator"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:56
 #~ msgid "Organization"
-#~ msgstr "Organization"
+#~ msgstr "组织"
 
 #: src/renderer/components/+workloads/workloads.tsx:29
 #: src/renderer/components/+workloads-overview/overview-statuses.tsx:46
 msgid "Overview"
-msgstr "Overview"
+msgstr "总览"
 
 #: src/renderer/components/+404/not-found.tsx:8
 msgid "Page not found"
-msgstr "Page not found"
+msgstr "无法找到页面"
 
 #: src/renderer/components/+workloads-jobs/job-details.tsx:82
 msgid "Parallelism"
@@ -1879,7 +1879,7 @@ msgstr "Parallelism"
 
 #: src/renderer/components/+storage-classes/storage-class-details.tsx:41
 msgid "Parameters"
-msgstr "Parameters"
+msgstr "参数"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:121
 msgid "Password"
@@ -1891,21 +1891,21 @@ msgstr "Paste as text"
 
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:42
 msgid "Path"
-msgstr "Path"
+msgstr "路径"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:112
 msgid "Path Prefix"
-msgstr "Path Prefix"
+msgstr "路径前缀"
 
 #: src/renderer/components/+storage/storage.tsx:23
 #: src/renderer/components/+storage-volume-claims/volume-claims.tsx:43
 msgid "Persistent Volume Claims"
-msgstr "Persistent Volume Claims"
+msgstr "存储卷声明(PVC)"
 
 #: src/renderer/components/+storage/storage.tsx:30
 #: src/renderer/components/+storage-volumes/volumes.tsx:37
 msgid "Persistent Volumes"
-msgstr "Persistent Volumes"
+msgstr "存储卷(PV)"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:79
 msgid "Please select at least one cluster context"
@@ -1933,7 +1933,7 @@ msgstr "Please select at least one cluster context"
 
 #: src/renderer/components/dock/pod-log-controls.tsx:61
 msgid "Pod"
-msgstr "Pod"
+msgstr "容器单元"
 
 #: src/renderer/components/+config/config.tsx:57
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets.tsx:36
@@ -1942,27 +1942,27 @@ msgstr "Pod Disruption Budgets"
 
 #: src/renderer/components/+workloads-pods/pod-details.tsx:89
 msgid "Pod IP"
-msgstr "Pod IP"
+msgstr "容器单元IP"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policies.tsx:32
 #: src/renderer/components/+user-management/user-management.tsx:42
 msgid "Pod Security Policies"
-msgstr "Pod Security Policies"
+msgstr "容器单元安全策略"
 
 #: src/renderer/components/+network-policies/network-policy-details.tsx:84
 msgid "Pod Selector"
-msgstr "Pod Selector"
+msgstr "容器单元选择器"
 
 #: src/renderer/components/+workloads-daemonsets/daemonset-details.tsx:72
 #: src/renderer/components/+workloads-jobs/job-details.tsx:87
 #: src/renderer/components/+workloads-replicasets/replicaset-details.tsx:84
 #: src/renderer/components/+workloads-statefulsets/statefulset-details.tsx:68
 msgid "Pod Status"
-msgstr "Pod Status"
+msgstr "容器单元状态"
 
 #: src/renderer/components/+workloads-pods/pod-menu.tsx:77
 #~ msgid "Pod shell"
-#~ msgstr "Pod shell"
+#~ msgstr "容器单元控制台"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:148
 #: src/renderer/components/+nodes/node-details.tsx:64
@@ -1977,15 +1977,15 @@ msgstr "Pod Status"
 #: src/renderer/components/+workloads-pods/pods.tsx:71
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:45
 msgid "Pods"
-msgstr "Pods"
+msgstr "容器单元"
 
 #: src/renderer/components/+network-policies/network-policies.tsx:32
 msgid "Policy Types"
-msgstr "Policy Types"
+msgstr "策略类型"
 
 #: src/renderer/components/+network-endpoints/endpoint-subset-list.tsx:86
 msgid "Port"
-msgstr "Port"
+msgstr "端口"
 
 #: src/renderer/components/+network-endpoints/endpoint-subset-list.tsx:83
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:96
@@ -1995,7 +1995,7 @@ msgstr "Port"
 #: src/renderer/components/+network-services/services.tsx:47
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:73
 msgid "Ports"
-msgstr "Ports"
+msgstr "端口集"
 
 #: src/renderer/components/+preferences/preferences.tsx:120
 msgid "Preferences"
@@ -2003,20 +2003,20 @@ msgstr "Preferences"
 
 #: src/renderer/components/dock/pod-log-search.tsx:42
 msgid "Previous"
-msgstr "Previous"
+msgstr ""
 
 #: src/renderer/components/+workloads-pods/pod-details.tsx:92
 msgid "Priority Class"
-msgstr "Priority Class"
+msgstr "优先级"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:67
 #~ msgid "Private Key Secret"
-#~ msgstr "Private Key Secret"
+#~ msgstr "私钥"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policies.tsx:35
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:74
 msgid "Privileged"
-msgstr "Privileged"
+msgstr "配置器"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:264
 #~ msgid "Pro-Tip: paste kubeconfig (text/yaml) to get available contexts"
@@ -2069,19 +2069,19 @@ msgstr "QoS Class"
 
 #: src/renderer/components/+config-resource-quotas/resource-quota-details.tsx:50
 msgid "Quotas"
-msgstr "Quotas"
+msgstr "配额"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:26
 msgid "Ranges (Min-Max)"
-msgstr "Ranges (Min-Max)"
+msgstr "区间 (Min-Max)"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:113
 msgid "Read-only"
-msgstr "Read-only"
+msgstr "只读"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:78
 msgid "Read-only Root Filesystem"
-msgstr "Read-only Root Filesystem"
+msgstr "只读根文件系统"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:95
 msgid "Readiness"
@@ -2095,11 +2095,11 @@ msgstr "Ready"
 #: src/renderer/components/+events/event-details.tsx:32
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:25
 msgid "Reason"
-msgstr "Reason"
+msgstr "原因"
 
 #: src/renderer/components/dock/pod-logs.store.ts:57
 msgid "Reason: {0} ({1})"
-msgstr "Reason: {0} ({1})"
+msgstr "原因: {0} ({1})"
 
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:82
 msgid "Receive"
@@ -2109,7 +2109,7 @@ msgstr "Receive"
 #: src/renderer/components/+storage-classes/storage-classes.tsx:35
 #: src/renderer/components/+storage-volumes/volume-details.tsx:40
 msgid "Reclaim Policy"
-msgstr "Reclaim Policy"
+msgstr "回收策略"
 
 #: src/renderer/components/cluster-manager/cluster-status.tsx:52
 #~ msgid "Reconnect"
@@ -2122,24 +2122,24 @@ msgstr "Reference"
 
 #: src/renderer/components/dock/upgrade-chart.tsx:97
 msgid "Release"
-msgstr "Release"
+msgstr "实例"
 
 #: src/renderer/components/dock/upgrade-chart.tsx:51
 msgid "Release <0>{releaseName}</0> successfully upgraded to version <1>{version}</1>"
-msgstr "Release <0>{releaseName}</0> successfully upgraded to version <1>{version}</1>"
+msgstr "实例 <0>{releaseName}</0> 成功地升级到 <1>{version}</1> 版本"
 
 #: src/renderer/components/dock/install-chart.tsx:124
 msgid "Release name"
-msgstr "Release name"
+msgstr "实例名称"
 
 #: src/renderer/components/+apps-releases/release-details.tsx:204
 msgid "Release: {0}"
-msgstr "Release: {0}"
+msgstr "实例: {0}"
 
 #: src/renderer/components/+apps/apps.tsx:26
 #: src/renderer/components/+apps-releases/releases.tsx:86
 msgid "Releases"
-msgstr "Releases"
+msgstr "实例"
 
 #: src/renderer/components/+preferences/preferences.tsx:144
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:59
@@ -2149,39 +2149,39 @@ msgstr "Releases"
 #: src/renderer/components/menu/menu-actions.tsx:49
 #: src/renderer/components/menu/menu-actions.tsx:85
 msgid "Remove"
-msgstr "Remove"
+msgstr "移除"
 
 #: src/renderer/components/+apps-releases/releases.tsx:65
 msgid "Remove <0>{releaseNames}</0>?"
-msgstr "Remove <0>{releaseNames}</0>?"
+msgstr "移除 <0>{releaseNames}</0>?"
 
 #: src/renderer/components/+workspaces/workspaces.tsx:62
 msgid "Remove Workspace"
-msgstr "Remove Workspace"
+msgstr "移除工作目录"
 
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:133
 msgid "Remove field"
-msgstr "Remove field"
+msgstr "移除字段"
 
 #: src/renderer/components/menu/menu-actions.tsx:93
 msgid "Remove item?"
-msgstr "Remove item?"
+msgstr "移除资源对象?"
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:60
 msgid "Remove selected bindings for <0>{0}</0>?"
-msgstr "Remove selected bindings for <0>{0}</0>?"
+msgstr "从 <0>{0}</0> 中删除选中的绑定?"
 
 #: src/renderer/components/+user-management-roles-bindings/role-binding-details.tsx:109
 msgid "Remove selected bindings from ${name}"
-msgstr "Remove selected bindings from ${name}"
+msgstr "删除选择的绑定 ${name}"
 
 #: src/renderer/components/item-object-list/item-list-layout.tsx:275
 msgid "Remove selected items ({0})"
-msgstr "Remove selected items ({0})"
+msgstr "删除选择的资源对象 ({0})"
 
 #: src/renderer/components/kube-object/kube-object-menu.tsx:70
 msgid "Remove {resourceKind} <0>{resourceName}</0>?"
-msgstr "Remove {resourceKind} <0>{resourceName}</0>?"
+msgstr "删除 {resourceKind} <0>{resourceName}</0>?"
 
 #: src/renderer/components/+preferences/preferences.tsx:114
 msgid "Removing helm branch <0>{0}</0> has failed: {1}"
@@ -2193,15 +2193,15 @@ msgstr "Removing helm branch <0>{0}</0> has failed: {1}"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:62
 #~ msgid "Renew Before"
-#~ msgstr "Renew Before"
+#~ msgstr "续约"
 
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:39
 msgid "Replica Sets"
-msgstr "Replica Sets"
+msgstr ""
 
 #: src/renderer/components/+workloads/workloads.tsx:69
 msgid "ReplicaSets"
-msgstr "ReplicaSets"
+msgstr "副本集"
 
 #: src/renderer/components/+config-autoscalers/hpa-details.tsx:84
 #: src/renderer/components/+config-autoscalers/hpa.tsx:49
@@ -2210,27 +2210,27 @@ msgstr "ReplicaSets"
 #: src/renderer/components/+workloads-replicasets/replicaset-details.tsx:79
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:46
 msgid "Replicas"
-msgstr "Replicas"
+msgstr "副本"
 
 #: src/renderer/components/dock/install-chart.tsx:119
 msgid "Repo/Name"
-msgstr "Repo/Name"
+msgstr "仓库/名称"
 
 #: src/renderer/components/+preferences/preferences.tsx:135
 msgid "Repositories"
-msgstr "Repositories"
+msgstr "仓库"
 
 #: src/renderer/components/+apps-helm-charts/helm-charts.tsx:68
 msgid "Repository"
-msgstr "Repository"
+msgstr "仓库"
 
 #: src/renderer/components/+network-ingresses/ingress-charts.tsx:42
 msgid "Request"
-msgstr "Request"
+msgstr "请求"
 
 #: src/renderer/components/+network-ingresses/ingress-charts.tsx:43
 msgid "Request duration in seconds"
-msgstr "Request duration in seconds"
+msgstr "请求持续时间（以秒为单位）"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:71
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:114
@@ -2241,7 +2241,7 @@ msgstr "Request duration in seconds"
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:41
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:65
 msgid "Requests"
-msgstr "Requests"
+msgstr "请求"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:86
 msgid "Required Drop Capabilities"
@@ -2254,7 +2254,7 @@ msgstr "Required field"
 #: src/renderer/components/+add-cluster/add-cluster.tsx:238
 #: src/renderer/components/item-object-list/page-filters-list.tsx:31
 msgid "Reset"
-msgstr "Reset"
+msgstr "重置"
 
 #: src/renderer/components/item-object-list/item-list-layout.tsx:199
 msgid "Reset filters?"
@@ -2275,29 +2275,29 @@ msgstr "Reset filters?"
 #: src/renderer/components/+custom-resources/crd-details.tsx:43
 #: src/renderer/components/+custom-resources/crd-list.tsx:70
 msgid "Resource"
-msgstr "Resource"
+msgstr "资源"
 
 #: src/renderer/components/+user-management-roles/role-details.tsx:44
 msgid "Resource Names"
-msgstr "Resource Names"
+msgstr "资源名称"
 
 #: src/renderer/components/+config/config.tsx:41
 #: src/renderer/components/+config-resource-quotas/resource-quotas.tsx:31
 #: src/renderer/components/+namespaces/namespace-details.tsx:40
 msgid "Resource Quotas"
-msgstr "Resource Quotas"
+msgstr "资源配额"
 
 #: src/renderer/components/kube-object/kube-object-meta.tsx:33
 msgid "Resource Version"
-msgstr "Resource Version"
+msgstr "资源版本"
 
 #: src/renderer/components/kube-object/kube-object-details.tsx:48
 msgid "Resource loading has failed: <0>{0}</0>"
-msgstr "Resource loading has failed: <0>{0}</0>"
+msgstr "资源加载失败: <0>{0}</0>"
 
 #: src/renderer/components/+config-autoscalers/hpa-details.tsx:29
 msgid "Resource {0} on Pods {addition}"
-msgstr "Resource {0} on Pods {addition}"
+msgstr "资源 {0} on Pods {addition}"
 
 #: src/renderer/components/+config-resource-quotas/add-quota-dialog.tsx:126
 msgid "ResourceQuota name"
@@ -2306,15 +2306,15 @@ msgstr "ResourceQuota name"
 #: src/renderer/components/+apps-releases/release-details.tsx:198
 #: src/renderer/components/+user-management-roles/role-details.tsx:28
 msgid "Resources"
-msgstr "Resources"
+msgstr "资源集"
 
 #: src/renderer/components/+network-ingresses/ingress-charts.tsx:49
 msgid "Response"
-msgstr "Response"
+msgstr "响应"
 
 #: src/renderer/components/+network-ingresses/ingress-charts.tsx:50
 msgid "Response duration in seconds"
-msgstr "Response duration in seconds"
+msgstr "响应持续时间(以秒为单位)"
 
 #: src/renderer/components/+workloads-deployments/deployments.tsx:111
 #: src/renderer/components/+workloads-deployments/deployments.tsx:116
@@ -2324,11 +2324,11 @@ msgstr "Restart"
 
 #: src/renderer/components/dock/terminal-tab.tsx:37
 msgid "Restart session"
-msgstr "Restart session"
+msgstr "重启回话"
 
 #: src/renderer/components/+workloads-pods/pods.tsx:76
 msgid "Restarts"
-msgstr "Restarts"
+msgstr "重启"
 
 #: src/renderer/components/+apps-releases/release-rollback-dialog.tsx:85
 #: src/renderer/components/+apps-releases/releases.tsx:90
@@ -2337,37 +2337,37 @@ msgstr "Revision"
 
 #: src/renderer/components/+cluster/cluster-no-metrics.tsx:9
 msgid "Right click cluster icon to open cluster settings."
-msgstr "Right click cluster icon to open cluster settings."
+msgstr "右键单击集群图标以打开设置"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:148
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:187
 msgid "Role"
-msgstr "Role"
+msgstr "角色"
 
 #: src/renderer/components/+user-management/user-management.tsx:30
 #: src/renderer/components/+user-management-roles-bindings/role-bindings.tsx:32
 msgid "Role Bindings"
-msgstr "Role Bindings"
+msgstr "角色绑定"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:105
 #~ msgid "Role ID"
-#~ msgstr "Role ID"
+#~ msgstr "角色ID"
 
 #: src/renderer/components/+user-management-roles/add-role-dialog.tsx:74
 msgid "Role name"
-msgstr "Role name"
+msgstr "角色名称"
 
 #: src/renderer/components/+nodes/nodes.tsx:123
 #: src/renderer/components/+user-management/user-management.tsx:35
 #: src/renderer/components/+user-management-roles/roles.tsx:30
 msgid "Roles"
-msgstr "Roles"
+msgstr "角色"
 
 #: src/renderer/components/+apps-releases/release-menu.tsx:47
 #: src/renderer/components/+apps-releases/release-menu.tsx:48
 #: src/renderer/components/+apps-releases/release-rollback-dialog.tsx:95
 msgid "Rollback"
-msgstr "Rollback"
+msgstr "回滚"
 
 #: src/renderer/components/+apps-releases/release-rollback-dialog.tsx:92
 msgid "Rollback <0>{releaseName}</0>"
@@ -2376,13 +2376,13 @@ msgstr "Rollback <0>{releaseName}</0>"
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:23
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:141
 msgid "Rule"
-msgstr "Rule"
+msgstr "规则"
 
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:107
 #: src/renderer/components/+network-ingresses/ingresses.tsx:34
 #: src/renderer/components/+user-management-roles/role-details.tsx:24
 msgid "Rules"
-msgstr "Rules"
+msgstr "规则"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:125
 msgid "Run As Group"
@@ -2403,7 +2403,7 @@ msgstr "Runtime Class"
 #: src/renderer/components/dock/edit-resource.tsx:87
 #: src/renderer/components/dock/pod-log-controls.tsx:74
 msgid "Save"
-msgstr "Save"
+msgstr "保存"
 
 #: src/renderer/components/+workloads-deployments/deployment-scale-dialog.tsx:138
 #: src/renderer/components/+workloads-deployments/deployments.tsx:96
@@ -2415,7 +2415,7 @@ msgstr "Save"
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:69
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:70
 msgid "Scale"
-msgstr "Scale"
+msgstr "伸缩"
 
 #: src/renderer/components/+workloads-deployments/deployment-scale-dialog.tsx:134
 msgid "Scale Deployment <0>{deploymentName}</0>"
@@ -2432,20 +2432,20 @@ msgstr "Scale Stateful Set <0>{statefulSetName}</0>"
 #: src/renderer/components/+workloads-cronjobs/cronjob-details.tsx:45
 #: src/renderer/components/+workloads-cronjobs/cronjobs.tsx:46
 msgid "Schedule"
-msgstr "Schedule"
+msgstr "计划"
 
 #: src/renderer/components/+custom-resources/crd-details.tsx:40
 #: src/renderer/components/+custom-resources/crd-list.tsx:73
 msgid "Scope"
-msgstr "Scope"
+msgstr "作用域"
 
 #: src/renderer/components/+config-resource-quotas/resource-quota-details.tsx:55
 msgid "Scope Selector"
-msgstr "Scope Selector"
+msgstr "作用域选择器"
 
 #: src/renderer/components/+config-resource-quotas/resource-quota-details.tsx:59
 msgid "Scope name"
-msgstr "Scope name"
+msgstr "作用域名称"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:140
 msgid "Se Linux"
@@ -2453,21 +2453,21 @@ msgstr "Se Linux"
 
 #: src/renderer/components/+apps-helm-charts/helm-charts.tsx:62
 msgid "Search Helm Charts"
-msgstr "Search Helm Charts"
+msgstr "搜索 Helm Charts"
 
 #: src/renderer/components/input/search-input.tsx:31
 msgid "Search..."
-msgstr "Search..."
+msgstr "搜索..."
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificates.tsx:65
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:108
 #~ msgid "Secret"
-#~ msgstr "Secret"
+#~ msgstr "机密"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/certificate-details.tsx:37
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:80
 #~ msgid "Secret Name"
-#~ msgstr "Secret Name"
+#~ msgstr "机密名称"
 
 #: src/renderer/components/+user-management-service-accounts/service-accounts-details.tsx:72
 msgid "Secret is not found"
@@ -2475,25 +2475,25 @@ msgstr "Secret is not found"
 
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:147
 msgid "Secret name"
-msgstr "Secret name"
+msgstr "机密名称"
 
 #: src/renderer/components/+config-secrets/secret-details.tsx:43
 msgid "Secret successfully updated."
-msgstr "Secret successfully updated."
+msgstr "机密已成功更新."
 
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:156
 msgid "Secret type"
-msgstr "Secret type"
+msgstr "机密类型"
 
 #: src/renderer/components/+config/config.tsx:33
 #: src/renderer/components/+config-secrets/secrets.tsx:38
 #: src/renderer/components/+workloads-pods/pod-details.tsx:112
 msgid "Secrets"
-msgstr "Secrets"
+msgstr "机密"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:114
 msgid "Security settings"
-msgstr "Security settings"
+msgstr ""
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:253
 #~ msgid "Select a context"
@@ -2501,7 +2501,7 @@ msgstr "Security settings"
 
 #: src/renderer/components/+config-resource-quotas/add-quota-dialog.tsx:134
 msgid "Select a quota.."
-msgstr "Select a quota.."
+msgstr "选择配额.."
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:173
 #~ msgid "Select context"
@@ -2532,12 +2532,12 @@ msgstr "Select custom kubeconfig file"
 #: src/renderer/components/+extensions/extensions.tsx:56
 #: src/renderer/components/+extensions/extensions.tsx:56
 msgid "Select extensions to install (formats: {0}),"
-msgstr "Select extensions to install (formats: {0}),"
+msgstr ""
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:81
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:81
 msgid "Select file"
-msgstr "Select file"
+msgstr "选择文件"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:221
 #~ msgid "Select kube-config file"
@@ -2557,15 +2557,15 @@ msgstr "Select kubeconfig file"
 
 #: src/renderer/components/+preferences/preferences.tsx:88
 #~ msgid "Select repository"
-#~ msgstr "Select repository"
+#~ msgstr "选择仓库"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:188
 msgid "Select role.."
-msgstr "Select role.."
+msgstr "选择角色.."
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:195
 msgid "Select service accounts"
-msgstr "Select service accounts"
+msgstr "选择服务账号"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:244
 #~ msgid "Selected clusters: <0>{0}</0>"
@@ -2594,7 +2594,7 @@ msgstr "Selected contexts: <0>{0}</0>"
 #: src/renderer/components/+workloads-replicasets/replicaset-details.tsx:68
 #: src/renderer/components/+workloads-statefulsets/statefulset-details.tsx:55
 msgid "Selector"
-msgstr "Selector"
+msgstr "选择器"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:61
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:91
@@ -2603,17 +2603,17 @@ msgstr "Selector"
 
 #: src/renderer/components/+network-ingresses/ingress-details.tsx:104
 msgid "Service"
-msgstr "Service"
+msgstr "服务"
 
 #: src/renderer/components/+user-management/user-management.tsx:25
 #: src/renderer/components/+user-management-service-accounts/service-accounts.tsx:34
 msgid "Service Accounts"
-msgstr "Service Accounts"
+msgstr "服务账号"
 
 #: src/renderer/components/+network/network.tsx:25
 #: src/renderer/components/+network-services/services.tsx:41
 msgid "Services"
-msgstr "Services"
+msgstr "服务"
 
 #: src/renderer/components/+network-services/service-details.tsx:45
 msgid "Session Affinity"
@@ -2629,19 +2629,19 @@ msgstr "Set quota"
 
 #: src/renderer/components/cluster-manager/clusters-menu.tsx:53
 msgid "Settings"
-msgstr "Settings"
+msgstr "设置"
 
 #: src/renderer/components/+nodes/node-menu.tsx:48
 #: src/renderer/components/+workloads-pods/pod-menu.tsx:78
 #~ msgid "Shell"
-#~ msgstr "Shell"
+#~ msgstr "控制台"
 
 #: src/renderer/components/+config-secrets/secret-details.tsx:92
 #: src/renderer/components/+workloads-pods/pod-container-env.tsx:102
 #: src/renderer/components/dock/pod-log-controls.tsx:72
 #: src/renderer/components/drawer/drawer-param-toggler.tsx:19
 msgid "Show"
-msgstr "Show"
+msgstr "显示"
 
 #: src/renderer/components/dock/install-chart.tsx:111
 msgid "Show Notes"
@@ -2674,7 +2674,7 @@ msgstr "Size Limit"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:70
 #~ msgid "Skip TLS Verify"
-#~ msgstr "Skip TLS Verify"
+#~ msgstr "跳过TLS验证"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:115
 msgid "Skip TLS certificate checks for the repository"
@@ -2684,7 +2684,7 @@ msgstr "Skip TLS certificate checks for the repository"
 #: src/renderer/components/+events/events.tsx:66
 #: src/renderer/components/+events/kube-event-details.tsx:48
 msgid "Source"
-msgstr "Source"
+msgstr "源"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:20
 msgid "Specified limits are higher than node capacity!"
@@ -2692,7 +2692,7 @@ msgstr "Specified limits are higher than node capacity!"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:26
 msgid "Started at"
-msgstr "Started at"
+msgstr "开始于"
 
 #: src/renderer/components/+workloads-pods/pod-details-container.tsx:99
 msgid "Startup"
@@ -2700,11 +2700,11 @@ msgstr "Startup"
 
 #: src/renderer/components/+workloads-statefulsets/statefulsets.tsx:42
 msgid "Stateful Sets"
-msgstr "Stateful Sets"
+msgstr "有状态副本集"
 
 #: src/renderer/components/+workloads/workloads.tsx:61
 msgid "StatefulSets"
-msgstr "StatefulSets"
+msgstr "有状态副本集"
 
 #: src/renderer/components/+apps-releases/release-details.tsx:192
 #: src/renderer/components/+apps-releases/releases.tsx:93
@@ -2723,7 +2723,7 @@ msgstr "StatefulSets"
 #: src/renderer/components/+workloads-pods/pod-details.tsx:81
 #: src/renderer/components/+workloads-pods/pods.tsx:80
 msgid "Status"
-msgstr "Status"
+msgstr "状态"
 
 #: src/renderer/components/+custom-resources/certmanager.k8s.io/issuer-details.tsx:64
 #~ msgid "Status URI"
@@ -2732,25 +2732,25 @@ msgstr "Status"
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:56
 #: src/renderer/components/layout/sidebar.tsx:130
 msgid "Storage"
-msgstr "Storage"
+msgstr "存储卷"
 
 #: src/renderer/components/+storage-volumes/volumes.tsx:40
 msgid "Storage Class"
-msgstr "Storage Class"
+msgstr "存储类型"
 
 #: src/renderer/components/+storage-volume-claims/volume-claim-details.tsx:53
 #: src/renderer/components/+storage-volumes/volume-details.tsx:43
 msgid "Storage Class Name"
-msgstr "Storage Class Name"
+msgstr "存储类型名称"
 
 #: src/renderer/components/+storage/storage.tsx:38
 #: src/renderer/components/+storage-classes/storage-classes.tsx:31
 msgid "Storage Classes"
-msgstr "Storage Classes"
+msgstr "存储类型"
 
 #: src/renderer/components/+storage-volume-claims/volume-claims.tsx:47
 msgid "Storage class"
-msgstr "Storage class"
+msgstr "存储类型"
 
 #: src/renderer/components/+custom-resources/crd-details.tsx:37
 msgid "Stored versions"
@@ -2768,11 +2768,11 @@ msgstr "Sub-object"
 #: src/renderer/components/dock/info-panel.tsx:95
 #: src/renderer/components/wizard/wizard.tsx:131
 msgid "Submit"
-msgstr "Submit"
+msgstr "提交"
 
 #: src/renderer/components/dock/info-panel.tsx:96
 msgid "Submitting.."
-msgstr "Submitting.."
+msgstr "提交中.."
 
 #: src/renderer/components/+network-endpoints/endpoint-details.tsx:23
 msgid "Subsets"
@@ -2810,11 +2810,11 @@ msgstr "Taints"
 
 #: src/renderer/components/dock/terminal.store.ts:28
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "终端"
 
 #: src/renderer/components/dock/dock.tsx:97
 msgid "Terminal session"
-msgstr "Terminal session"
+msgstr "终端会话"
 
 #: src/renderer/components/+preferences/kubectl-binaries.tsx:38
 msgid "The path to the kubectl binary on the system."
@@ -2822,7 +2822,7 @@ msgstr "The path to the kubectl binary on the system."
 
 #: src/renderer/components/dock/pod-log-list.tsx:153
 msgid "There are no logs available for container"
-msgstr "There are no logs available for container"
+msgstr ""
 
 #: src/renderer/components/dock/pod-logs.tsx:162
 #~ msgid "There are no logs available for container."
@@ -2846,7 +2846,7 @@ msgstr "This is the quick launch menu."
 
 #: src/renderer/components/+cluster-settings/components/cluster-accessible-namespaces.tsx:22
 msgid "This setting is useful for manually specifying which namespaces you have access to. This is useful when you don&apos;t have permissions to list namespaces."
-msgstr "This setting is useful for manually specifying which namespaces you have access to. This is useful when you don&apos;t have permissions to list namespaces."
+msgstr ""
 
 #: src/renderer/components/+cluster-settings/components/cluster-accessible-namespaces.tsx:22
 #~ msgid "This setting is useful for manually specifying which namespaces you have access to. This is useful when you don't have permissions to list namespaces."
@@ -2870,7 +2870,7 @@ msgstr "Tokens"
 
 #: src/renderer/components/+workloads-pods/pod-details-tolerations.tsx:11
 msgid "Tolerations"
-msgstr "Tolerations"
+msgstr "污点"
 
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:89
 msgid "Transmit"
@@ -2880,7 +2880,7 @@ msgstr "Transmit"
 #: src/renderer/components/+workloads-cronjobs/cronjobs.tsx:72
 #: src/renderer/components/+workloads-cronjobs/cronjobs.tsx:73
 msgid "Trigger"
-msgstr "Trigger"
+msgstr "目标"
 
 #: src/renderer/components/+workloads-cronjobs/cronjob-trigger-dialog.tsx:102
 msgid "Trigger CronJob <0>{cronjobName}</0>"
@@ -2900,7 +2900,7 @@ msgstr "Trigger CronJob <0>{cronjobName}</0>"
 #: src/renderer/components/+user-management-service-accounts/service-accounts-secret.tsx:43
 #: src/renderer/components/+workloads-pods/pod-details.tsx:139
 msgid "Type"
-msgstr "Type"
+msgstr "类型"
 
 #: src/renderer/components/+preferences/preferences.tsx:126
 msgid "Type HTTP proxy url (example: http://proxy.acme.org:8080)"
@@ -2921,12 +2921,12 @@ msgstr "URL"
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:212
 msgid "Update"
-msgstr "Update"
+msgstr "更新"
 
 #: src/renderer/components/+apps-releases/release-details.tsx:179
 #: src/renderer/components/+apps-releases/releases.tsx:94
 msgid "Updated"
-msgstr "Updated"
+msgstr "更新"
 
 #: src/renderer/components/dock/upgrade-chart.tsx:104
 msgid "Updating.."
@@ -2935,11 +2935,11 @@ msgstr "Updating.."
 #: src/renderer/components/+apps-releases/release-details.tsx:176
 #: src/renderer/components/dock/upgrade-chart.tsx:104
 msgid "Upgrade"
-msgstr "Upgrade"
+msgstr "升级"
 
 #: src/renderer/components/dock/upgrade-chart.tsx:100
 msgid "Upgrade version"
-msgstr "Upgrade version"
+msgstr "升级版本"
 
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:70
 #: src/renderer/components/+cluster/cluster-pie-charts.tsx:113
@@ -2957,7 +2957,7 @@ msgstr "Upgrade version"
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:58
 #: src/renderer/components/+workloads-pods/pod-charts.tsx:99
 msgid "Usage"
-msgstr "Usage"
+msgstr "用量"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:65
 #: src/renderer/components/+add-cluster/add-cluster.tsx:65
@@ -2969,7 +2969,7 @@ msgstr "Use configuration"
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:82
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:82
 msgid "Use file"
-msgstr "Use file"
+msgstr ""
 
 #: src/renderer/components/+user-management-roles-bindings/add-role-binding-dialog.tsx:190
 msgid "Use same name for RoleBinding"
@@ -2977,7 +2977,7 @@ msgstr "Use same name for RoleBinding"
 
 #: src/renderer/components/+config-resource-quotas/resource-quota-details.tsx:43
 #~ msgid "Used"
-#~ msgstr "Used"
+#~ msgstr "使用"
 
 #: src/renderer/components/+pod-security-policies/pod-security-policy-details.tsx:154
 msgid "User"
@@ -2989,7 +2989,7 @@ msgstr "Username"
 
 #: src/renderer/components/+custom-resources/crd-details.tsx:98
 msgid "Validation"
-msgstr "Validation"
+msgstr "校验"
 
 #: src/renderer/components/+config-resource-quotas/add-quota-dialog.tsx:135
 #: src/renderer/components/+config-secrets/add-secret-dialog.tsx:132
@@ -3018,7 +3018,7 @@ msgstr "Verbs"
 #: src/renderer/components/dock/install-chart.tsx:120
 #: src/renderer/components/dock/upgrade-chart.tsx:99
 msgid "Version"
-msgstr "Version"
+msgstr "版本"
 
 #: src/renderer/components/dock/install-chart.tsx:110
 msgid "View Helm Release"
@@ -3204,7 +3204,7 @@ msgstr "{metricsRemainCount} more..."
 
 #: src/renderer/components/+workloads-pods/pod-logs-dialog.tsx:240
 #~ msgid "{podName} Logs"
-#~ msgstr "{podName} Logs"
+#~ msgstr "{podName} 日志"
 
 #: src/renderer/components/dock/edit-resource.tsx:56
 msgid "{resourceType} <0>{resourceName}</0> updated."
@@ -3216,4 +3216,4 @@ msgstr "{selectedCount, plural, one {<0>Remove item <1>{selectedNames}</1>?</0>}
 
 #: src/renderer/components/dock/info-panel.tsx:89
 msgid "{submitLabel} & Close"
-msgstr "{submitLabel} & Close"
+msgstr "{submitLabel}并关闭"

@@ -54,7 +54,8 @@
     "locales": [
       "en",
       "ru",
-      "fi"
+      "fi",
+      "zh"
     ],
     "format": "po",
     "sourceLocale": "en",
