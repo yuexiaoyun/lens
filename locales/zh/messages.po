@@ -97,7 +97,7 @@ msgstr ""
 
 #: src/renderer/components/cluster-manager/clusters-menu.tsx:134
 msgid "Add Cluster"
-msgstr "添加群集"
+msgstr "添加集群"
 
 #: src/renderer/components/+preferences/preferences.tsx:136
 msgid "Add Custom Helm Repo"
@@ -121,15 +121,15 @@ msgstr "添加绑定到 {name}"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:300
 msgid "Add cluster"
-msgstr "添加群集"
+msgstr "添加集群"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:327
 #~ msgid "Add cluster(s)"
-#~ msgstr "添加群集"
+#~ msgstr "添加集群"
 
 #: src/renderer/components/+add-cluster/add-cluster.tsx:300
 msgid "Add clusters"
-msgstr "添加群集"
+msgstr "添加集群"
 
 #: src/renderer/components/+preferences/add-helm-repo-dialog.tsx:126
 msgid "Add custom Helm Repo"
@@ -860,7 +860,7 @@ msgstr "描述"
 
 #: src/renderer/components/+workloads-replicasets/replicasets.tsx:43
 msgid "Desired"
-msgstr "Desired"
+msgstr "期望"
 
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets-details.tsx:41
 #: src/renderer/components/+config-pod-disruption-budgets/pod-disruption-budgets.tsx:43
@@ -871,7 +871,7 @@ msgstr "Desired Healthy"
 #: src/renderer/components/+workloads-replicasets/replicaset-scale-dialog.tsx:113
 #: src/renderer/components/+workloads-statefulsets/statefulset-scale-dialog.tsx:113
 msgid "Desired number of replicas"
-msgstr "Desired number of replicas"
+msgstr "目标副本数量"
 
 #: src/renderer/components/cluster-manager/clusters-menu.tsx:64
 msgid "Disconnect"
@@ -901,7 +901,7 @@ msgstr "Does not affect cluster communications!"
 
 #: src/renderer/components/kubeconfig-dialog/kubeconfig-dialog.tsx:90
 msgid "Download file"
-msgstr "Download file"
+msgstr "下载文件"
 
 #: src/renderer/components/+preferences/kubectl-binaries.tsx:24
 msgid "Download kubectl binaries"
@@ -1318,7 +1318,7 @@ msgstr "Key file"
 #: src/renderer/components/+config-maps/config-maps.tsx:35
 #: src/renderer/components/+config-secrets/secrets.tsx:43
 msgid "Keys"
-msgstr "键值"
+msgstr "密钥"
 
 #: src/renderer/components/+apps-helm-charts/helm-chart-details.tsx:91
 msgid "Keywords"
